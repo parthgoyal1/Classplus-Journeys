@@ -1,0 +1,1813 @@
+{
+	"journey": {
+		"steps": [
+			{
+				"id": "5f1593e99bc1870d3afcbd43",
+				"slug": "user-type"
+			},
+			{
+				"id": "5f3558b744c1193114c728d2",
+				"slug": "ownerflow"
+			},
+			{
+				"id": "5f35590544c1199bb1c728d3",
+				"slug": "studentsnum"
+			},
+			{
+				"id": "5f35596b44c11978f6c728d4",
+				"slug": "ownerscoaching"
+			},
+			{
+				"id": "5f35599e44c1196af0c728d5",
+				"slug": "phonenumowner"
+			},
+			{
+				"id": "5f355ae344c119044ec728d8",
+				"slug": "appinfo"
+			},
+			{
+				"id": "5f355ace44c1195f34c728d7",
+				"slug": "videomna"
+			},
+			{
+				"id": "5f355c9644c11952f3c72ace",
+				"slug": "faq"
+			},
+			{
+				"id": "5f38e9867889bb5a2296febf",
+				"slug": "faqs"
+			},
+			{
+				"id": "5f3a3e2c7889bbf942972622",
+				"slug": "content"
+			},
+			{
+				"id": "5f35627a44c1197ad5c72f7c",
+				"slug": "schedule"
+			},
+			{
+				"id": "5f355a1844c1196380c728d6",
+				"slug": "appprompt"
+			},
+			{
+				"id": "5f1593e99bc18746bbfcbd4b",
+				"slug": "user-name"
+			},
+			{
+				"id": "5f1593e99bc1874c11fcbd4f",
+				"slug": "user-city"
+			},
+			{
+				"id": "5f1593e99bc18742c0fcbd44",
+				"slug": "name"
+			},
+			{
+				"id": "5f1593e99bc1870f10fcbd45",
+				"slug": "number"
+			},
+			{
+				"id": "5f1593e99bc18708f5fcbd4e",
+				"slug": "childsname"
+			},
+			{
+				"id": "5f1593e99bc1875602fcbd46",
+				"slug": "city"
+			},
+			{
+				"id": "5f1593e99bc1875339fcbd47",
+				"slug": "use-case"
+			},
+			{
+				"id": "5f1593e99bc1872ad7fcbd4a",
+				"slug": "subjects"
+			},
+			{
+				"id": "5f1593e99bc1875282fcbd4c",
+				"slug": "other-coaching"
+			}
+		],
+		"deleted": false,
+		"defaultJourney": false,
+		"actions": {
+			"response": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Great! It was really nice talking to you. \nOur team will get in touch with you shortly. \n\nHave a good day. 😊"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "owner"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Great! It was really nice talking to you. \nOur team will get in touch with you shortly. \n\nHave a good day. 😊"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "faculty"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 2,
+					"messages": [
+						"Great! It was really nice talking to you. \nOur team will get in touch with your Institute shortly. \n\nHave a good day. 😊"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "student"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 3,
+					"messages": [
+						"Great! It was really nice talking to you. \nOur team will get in touch with your child's Institute shortly. \n\nHave a good day. 😊"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 4,
+					"quickReplies": {
+						"title": [
+							""
+						],
+						"options": []
+					},
+					"paramOptions": {
+						"hideInput": true
+					}
+				}
+			]
+		},
+		"stepConditions": [],
+		"saveJourneyResponses": false,
+		"name": "lead generation",
+		"description": "lead generation",
+		"categoryType": "Default Category",
+		"survey": false,
+		"slug": "lead-generation",
+		"__v": 27,
+		"conditionalNodes": {
+			"user-type": {
+				"name": "user type condition",
+				"step": "user-type",
+				"rules": [
+					{
+						"expressionLabel": " not equal to ",
+						"expression": "!=",
+						"expressionTest": "tutor",
+						"next": "name",
+						"type": "step",
+						"ignoreCase": true,
+						"actionFunction": "setSteps"
+					},
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "owner",
+						"next": "ownerflow",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "name"
+				}
+			},
+			"other-coaching": {
+				"name": "other coaching condition",
+				"step": "other-coaching",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "yes",
+						"next": "name",
+						"type": "step",
+						"ignoreCase": true,
+						"actionFunction": "setChildStep"
+					}
+				],
+				"defaultRule": {
+					"next": "city"
+				}
+			},
+			"appprompt": {
+				"name": "appPrompt condition",
+				"step": "appprompt",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Yes",
+						"next": "videomna",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "appinfo"
+				}
+			},
+			"appinfo": {
+				"name": "appInfo condition",
+				"step": "appinfo",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Yes",
+						"next": "videomna",
+						"type": "step",
+						"ignoreCase": true
+					}
+				]
+			},
+			"schedule": {
+				"name": "schedule condition",
+				"step": "schedule",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Go to the previous choice",
+						"next": "faq",
+						"type": "step",
+						"ignoreCase": true
+					}
+				]
+			},
+			"ownerscoaching": {
+				"name": "ownersCoaching condition",
+				"step": "ownerscoaching",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "IIT JEE/NEET",
+						"next": "studentsnum",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "number"
+				}
+			},
+			"faq": {
+				"name": "FAQ condition",
+				"step": "faq",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "FAQ",
+						"next": "faqs",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "schedule"
+				}
+			},
+			"content": {
+				"name": "content condition",
+				"step": "content",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Back to FAQ",
+						"next": "faqs",
+						"type": "step",
+						"ignoreCase": true
+					},
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Back to initial Menu",
+						"next": "faq",
+						"type": "step",
+						"ignoreCase": true
+					}
+				]
+			}
+		},
+		"nodePositions": {
+			"__action__": {
+				"x": 205,
+				"y": 824
+			},
+			"__trigger__": {
+				"x": 237,
+				"y": 3
+			},
+			"user-type": {
+				"x": 209,
+				"y": 233
+			},
+			"__condition__user-type": {
+				"x": 526,
+				"y": 191
+			},
+			"name": {
+				"x": 213,
+				"y": 315
+			},
+			"number": {
+				"x": 211,
+				"y": 395
+			},
+			"city": {
+				"x": 202,
+				"y": 651
+			},
+			"use-case": {
+				"x": 189,
+				"y": 741
+			},
+			"no-of-students": {
+				"x": 639,
+				"y": 653
+			},
+			"previous-platform": {
+				"x": 515,
+				"y": 769
+			},
+			"subjects": {
+				"x": 0,
+				"y": 169
+			},
+			"__condition__city": {
+				"x": 600,
+				"y": 300
+			},
+			"user-name": {
+				"x": 236,
+				"y": 94
+			},
+			"other-coaching": {
+				"x": 204,
+				"y": 570
+			},
+			"__condition__other-coaching": {
+				"x": 498,
+				"y": 407
+			},
+			"platform-name": {
+				"x": 492,
+				"y": 872
+			},
+			"__condition__previous-platform": {
+				"x": 759,
+				"y": 752
+			},
+			"childsname": {
+				"x": 209,
+				"y": 484
+			},
+			"user": {
+				"x": 696,
+				"y": 432
+			},
+			"user-city": {
+				"x": 477,
+				"y": 115
+			},
+			"__action__response": {
+				"x": 191,
+				"y": 857
+			},
+			"ownerflow": {
+				"x": 707,
+				"y": 246
+			},
+			"studentsnum": {
+				"x": 732,
+				"y": 383
+			},
+			"ownerscoaching": {
+				"x": 727,
+				"y": 317
+			},
+			"phonenumowner": {
+				"x": 700,
+				"y": 467
+			},
+			"appprompt": {
+				"x": 672,
+				"y": 580
+			},
+			"__condition__appprompt": {
+				"x": 805,
+				"y": 537
+			},
+			"videomna": {
+				"x": 660,
+				"y": 703
+			},
+			"appinfo": {
+				"x": 893,
+				"y": 681
+			},
+			"__condition__appinfo": {
+				"x": 1039,
+				"y": 641
+			},
+			"__condition__videomna": {
+				"x": 561,
+				"y": 657
+			},
+			"faq": {
+				"x": 650,
+				"y": 795
+			},
+			"__condition__faq": {
+				"x": 542,
+				"y": 766
+			},
+			"schedule": {
+				"x": 668,
+				"y": 898
+			},
+			"__condition__schedule": {
+				"x": 806,
+				"y": 856
+			},
+			"__condition__ownerflow": {
+				"x": 869,
+				"y": 195
+			},
+			"__condition__ownerscoaching": {
+				"x": 852,
+				"y": 274
+			},
+			"faqs": {
+				"x": 467,
+				"y": 984
+			},
+			"content": {
+				"x": 486,
+				"y": 1095
+			},
+			"__condition__content": {
+				"x": 610,
+				"y": 1055
+			}
+		},
+		"start": "user-name"
+	},
+	"stepsMap": {
+		"5f1593e99bc18742c0fcbd44": {
+			"deleted": false,
+			"slug": "name",
+			"defaultStep": false,
+			"name": "name",
+			"__v": 0,
+			"next": "number",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Ok! Could you please tell me which *Institute* are you associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "!=",
+							"value": "parent"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Ok! Could you please tell me which Institute are you associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "!=",
+							"value": "parent"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 2,
+					"messages": [
+						"Ok! Could you please tell me *which Institute* your child is associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 3,
+					"messages": [
+						"Ok! Could you please tell me which Institute your child is associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1870d3afcbd43": {
+			"deleted": false,
+			"slug": "user-type",
+			"defaultStep": false,
+			"name": "user type",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "userTypePrompt",
+					"filters": []
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "userTypeValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "name"
+		},
+		"5f1593e99bc1875282fcbd4c": {
+			"deleted": false,
+			"slug": "other-coaching",
+			"defaultStep": false,
+			"name": "other coaching",
+			"__v": 0,
+			"next": "city",
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"prompts": [
+				{
+					"type": "quickReplies",
+					"id": 0,
+					"quickReplies": {
+						"title": [
+							"Alright! Are you associated with any other institute?"
+						],
+						"options": [
+							{
+								"title": "Yes",
+								"text": "yes"
+							},
+							{
+								"title": "No",
+								"text": "no"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "!=",
+							"value": "parent"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 3,
+					"quickReplies": {
+						"title": [
+							"Alright! Is your child associated with any other institute?"
+						],
+						"options": [
+							{
+								"title": "Yes",
+								"text": "yes"
+							},
+							{
+								"title": "No",
+								"text": "no"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 2,
+					"messages": [
+						"Alright! Are you associated with any other institute?\n\n*1*. Yes\n*2*. No"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "!=",
+							"value": "parent"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 3,
+					"messages": [
+						"Alright! Is your child associated with any other institute?\n\n*1*. Yes\n*2*. No"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						}
+					]
+				}
+			]
+		},
+		"5f1593e99bc18708f5fcbd4e": {
+			"deleted": false,
+			"slug": "childsname",
+			"defaultStep": false,
+			"name": "childsName",
+			"__v": 0,
+			"next": "other-coaching",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"And your child's name?"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1875602fcbd46": {
+			"deleted": false,
+			"slug": "city",
+			"defaultStep": false,
+			"name": "city",
+			"__v": 0,
+			"next": "use-case",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Thanks! And in which *City* is the Institute? "
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Thanks! And in which City is the Institute? "
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1875339fcbd47": {
+			"deleted": false,
+			"slug": "use-case",
+			"defaultStep": false,
+			"name": "use case",
+			"__v": 0,
+			"next": "__action__response",
+			"prompts": [
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Great! Is there any specific offering you are looking for? \n"
+						],
+						"options": [
+							{
+								"title": "Institute Management",
+								"text": "Institute Management"
+							},
+							{
+								"title": "Live/Recorded Classes",
+								"text": "Live Classes"
+							},
+							{
+								"title": "Selling Courses Online",
+								"text": "Selling Courses Online"
+							},
+							{
+								"title": "Online Tests",
+								"text": "Online Tests"
+							},
+							{
+								"title": "All of the above",
+								"text": "All of the above"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Great! Is there any specific offering you are looking for? \n\n*1*. Institute Management\n*2*. Live/Recorded Classes\n*3*. Selling Courses Online\n*4*. Online Tests\n*5*. All of the above"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 2,
+					"func": "usecaseValidator"
+				},
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1870f10fcbd45": {
+			"deleted": false,
+			"slug": "number",
+			"defaultStep": false,
+			"name": "number",
+			"__v": 0,
+			"next": "childsname",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Super! Can we have your contact *Number?*"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "owner"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Super! Can we have the *contact number of the Institute* so that we can get in touch with them?"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "student"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 2,
+					"messages": [
+						"Super! Can we have your contact *number?*"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "faculty"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 3,
+					"messages": [
+						"Super! Can we have the *contact number of the Institute* so that we can get in touch with them?"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 4,
+					"messages": [
+						"Super! Can we have your contact number?"
+					],
+					"filters": [
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "owner"
+						},
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 5,
+					"messages": [
+						"Super! Can we have the contact number of the Institute so that we can get in touch with them?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "student"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 6,
+					"messages": [
+						"Super! Can we have the contact number of the Institute so that we can get in touch with them?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "parent"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 7,
+					"messages": [
+						"Super! Can we have your contact number?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						},
+						{
+							"type": "steps",
+							"step": "user-type",
+							"operator": "==",
+							"value": "faculty"
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "mobileValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1872ad7fcbd4a": {
+			"deleted": false,
+			"slug": "subjects",
+			"defaultStep": false,
+			"name": "subjects",
+			"__v": 0,
+			"next": null,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Please enter the subjects you are interested in teaching"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc18746bbfcbd4b": {
+			"deleted": false,
+			"slug": "user-name",
+			"defaultStep": false,
+			"name": "user name",
+			"__v": 0,
+			"next": "user-type",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Hey! Welcome to *Classplus*. 🙂\nWe’re delighted to have you here. \n\nMay I please know your *Name?*\t\t\t\t\t\t"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Hey! Welcome to Classplus. 🙂\nWe’re delighted to have you here. \n\nMay I please know your name?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 0,
+					"func": "sendDataToAPI"
+				},
+				{
+					"type": "func",
+					"id": 2,
+					"func": "getLeadCity"
+				}
+			]
+		},
+		"5f1593e99bc1874c11fcbd4f": {
+			"deleted": false,
+			"slug": "user-city",
+			"defaultStep": false,
+			"name": "user city",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "userCityFunction"
+				}
+			],
+			"next": null
+		},
+		"5f3558b744c1193114c728d2": {
+			"deleted": false,
+			"slug": "ownerflow",
+			"defaultStep": false,
+			"name": "OwnerFlow",
+			"__v": 18,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Great! Could you please tell me which *Institute* you are associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Great! Could you please tell me which Institute you are associated with?"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "ownerscoaching"
+		},
+		"5f35590544c1199bb1c728d3": {
+			"deleted": false,
+			"slug": "studentsnum",
+			"defaultStep": false,
+			"name": "studentsNum",
+			"__v": 12,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"That's great. And how many students do you have?\n1. 1-10\n2. 11-50\n3. 51-100\n4. 101-500\n5. More than 500"
+					],
+					"filters": []
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "noOfStudentsValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "phonenumowner"
+		},
+		"5f35596b44c11978f6c728d4": {
+			"deleted": false,
+			"slug": "ownerscoaching",
+			"defaultStep": false,
+			"name": "ownersCoaching",
+			"__v": 6,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Awesome! For that, can you tell us what type of coaching institute do you run:\n1. Academics\n2. IIT JEE/NEET\n3. Government Exams\n4. Others"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "coachingTypeValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "studentsnum"
+		},
+		"5f35599e44c1196af0c728d5": {
+			"deleted": false,
+			"slug": "phonenumowner",
+			"defaultStep": false,
+			"name": "phoneNumOwner",
+			"__v": 6,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Super! Can we have your contact number?"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "mobileValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "appprompt"
+		},
+		"5f355a1844c1196380c728d6": {
+			"deleted": false,
+			"slug": "appprompt",
+			"defaultStep": false,
+			"name": "appPrompt",
+			"__v": 12,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Do you want a personally branded app to take your coaching center to the next level?\n1. Yes\n2. No"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			]
+		},
+		"5f355ace44c1195f34c728d7": {
+			"deleted": false,
+			"slug": "videomna",
+			"defaultStep": false,
+			"name": "videoMNA",
+			"__v": 7,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "videoMNAprompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "usecaseValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			],
+			"next": "faq"
+		},
+		"5f355ae344c119044ec728d8": {
+			"deleted": false,
+			"slug": "appinfo",
+			"defaultStep": false,
+			"name": "appInfo",
+			"__v": 27,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Did you know 1093 coaching centers from IIT-JEE/NEET category have already created their personal app using Classplus? Don't you wish to take your institute to the next level? \n1. Yes\n2. No"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			],
+			"responses": {
+				"no": [
+					{
+						"type": "TriggerIntent",
+						"id": 0,
+						"trigger": "mna-bot"
+					}
+				]
+			}
+		},
+		"5f355c9644c11952f3c72ace": {
+			"deleted": false,
+			"slug": "faq",
+			"defaultStep": false,
+			"name": "FAQ",
+			"__v": 22,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"We are glad to hear that! We would like you to clarify any frequently asked doubts and to hear what our users and the media had to say about us.\n\n1. FAQ\n2. Testimonials\n3. Classplus in media"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "faqValidator"
+				}
+			],
+			"next": "schedule"
+		},
+		"5f35627a44c1197ad5c72f7c": {
+			"deleted": false,
+			"slug": "schedule",
+			"defaultStep": false,
+			"name": "schedule",
+			"__v": 37,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "schedulePrompt"
+				}
+			],
+			"responses": {
+				"greeting": []
+			},
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "scheduleValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f38e9867889bb5a2296febf": {
+			"deleted": false,
+			"slug": "faqs",
+			"defaultStep": false,
+			"name": "faqs",
+			"__v": 7,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "faqsPrompt"
+				}
+			],
+			"next": "content",
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "faqsValid"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			]
+		},
+		"5f3a3e2c7889bbf942972622": {
+			"deleted": false,
+			"slug": "content",
+			"defaultStep": false,
+			"name": "content",
+			"__v": 6,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "contentPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "contentValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDataToAPI"
+				}
+			]
+		}
+	},
+	"training": [
+		{
+			"noun_chunks": [],
+			"text": "hello classplus",
+			"keywords": [],
+			"intent": "lead-generation",
+			"deleted": false,
+			"__v": 0
+		},
+		{
+			"noun_chunks": [],
+			"text": "hi classplus",
+			"keywords": [],
+			"intent": "lead-generation",
+			"deleted": false,
+			"__v": 0
+		}
+	],
+	"functions": [
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc18742c0fcbd44",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18742c0fcbd44",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "userTypePrompt",
+			"type": "prompt",
+			"stepId": "5f1593e99bc1870d3afcbd43",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here app.context.paramExpected\n    let userName = app.source == 'whatsapp' ? `*${app.context.steps[\"user-name\"]}*` : app.context.steps[\"user-name\"];\n    let ownerTitle = \"Owner of an Institute\";\n    let facultyTitle = \"Faculty of an Institute\";\n    let studentTitle = \"Student\";\n    let parentTitle = \"Parent\";\n    if(app.source == 'whatsapp'){\n        studentTitle = \"*Student*\";\n        parentTitle = \"*Parent*\"\n     ownerTitle = \"*Owner* of an Institute\";\n     facultyTitle = \"*Faculty* of an Institute\";\n    }\n    app.sendQuickReplies({\n        title: `It’s great to meet you, ${userName}. \\n\\nAs our solution caters to tuition centres, parents, students, may I know what describes you the best?\\n`,\n        options: [\n            {\n                text: \"owner\",\n                title: ownerTitle\n            },\n            {\n                title: facultyTitle,\n                text: \"faculty\"\n            },\n            {\n                title: studentTitle,\n                text: \"student\"\n            },\n            {\n                title: parentTitle,\n                text: \"parent\"\n            }\n        ]\n    })\n    resolve();\n});"
+		},
+		{
+			"name": "userTypeValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870d3afcbd43",
+			"code": "return new Promise(resolve => {\n    let usertype = app.data.message;\n\n    if (usertype) {\n        usertype = usertype.toLowerCase().trim();\n    }\n\n    let ownerRegex = /owner|owner of an institute|1|one/ig;\n    let facultyRegex = /faculty|2|two/ig;\n    let studentRegex = /Student|3|three/ig;\n    let parentRegex = /Parent|4|four/ig;\n\n    if (ownerRegex.test(usertype)) {\n        app.setStep('user-type', 'owner');\n        app.setStep('childsname', \" \");\n        app.setStep('other-coaching', \" \");\n        \n        resolve();\n    }\n    else if (facultyRegex.test(usertype)) {\n        app.setStep('user-type', 'faculty');\n        app.setStep('childsname', \" \");\n        app.setStep('other-coaching', \" \");\n        resolve();\n    }\n    else if (studentRegex.test(usertype)) {\n        app.setStep('user-type', 'student');\n\n        app.setStep('use-case', ' ');\n        app.setStep('no-of-students', ' ');\n        app.setStep('previous-platform', ' ');\n        app.setStep('subjects', ' ');\n        app.setStep('platform-name', \" \");\n        app.setStep('childsname', \" \");\n        resolve();\n    } else if (parentRegex.test(usertype)) {\n        app.setStep('user-type', 'parent');\n\n        app.setStep('use-case', ' ');\n        app.setStep('no-of-students', ' ');\n        app.setStep('previous-platform', ' ');\n        app.setStep('subjects', ' ');\n        app.setStep('platform-name', \" \");\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Owner of tuition centre\",\n                            text: \"owner\"\n                        },\n                        {\n                            title: \"Teacher at tuition centre\",\n                            text: \"faculty\"\n                        },\n                        {\n                            title: \"Student\",\n                            text: \"student\"\n                        },\n                        {\n                            title: \"Parent\",\n                            text: \"parent\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870d3afcbd43",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875282fcbd4c",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875282fcbd4c",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc18708f5fcbd4e",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18708f5fcbd4e",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875602fcbd46",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875602fcbd46",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875339fcbd47",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "usecaseValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875339fcbd47",
+			"code": "return new Promise(resolve => {\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, \"Institute Management\");\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, \"Live/Recorded Classes\");\n                resolve();\n            } else if (value == 3) {\n                app.setStep(stepName, \"Selling Courses Online\");\n                resolve();\n            } else if (value == 4) {\n                app.setStep(stepName, \"Online Tests\");\n                resolve();\n            } else if (value == 5) {\n                app.setStep(stepName, \"All of the above\");\n                resolve();\n            } else {\n                resolve();\n            }\n        } else {\n            resolve();\n        }\n    } else {\n        resolve();\n    }\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1875339fcbd47",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "mobileValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870f10fcbd45",
+			"code": "return new Promise(resolve => {\n    let mobile = app.data.message;\n\n    let mobileMatches = app.utilFunctions.mobileNumValidator(mobile);\n    let stepName = app.context[\"paramExpected\"];\n    if (mobileMatches.length > 0) {\n        app.setStep(stepName, mobileMatches[0]);\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendTextMessage(`Please enter valid mobile number`);\n            }\n        })\n    }\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870f10fcbd45",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1872ad7fcbd4a",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc18746bbfcbd4b",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18746bbfcbd4b",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "getLeadCity",
+			"type": "validators",
+			"stepId": "5f1593e99bc18746bbfcbd4b",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    // let stepName = app.context[\"paramExpected\"];\n    // app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    // let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    // app.log(stepValue, \"stepValue\");\n    app.executeApi('getLeadCity', {\n        \"number\": sender,\n    }).then(response => {\n        let city = JSON.parse(response).data.city;\n        app.log(JSON.parse(response), 'response from sendData API');\n        if(city){\n        app.setStep('user-city', undefined);\n        }\n        else{\n            app.setStep('city', undefined);\n        }\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    });\n    resolve();\n});"
+		},
+		{
+			"name": "userCityFunction",
+			"type": "prompt",
+			"stepId": "5f1593e99bc1874c11fcbd4f",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    // let stepName = app.context[\"paramExpected\"];\n    // app.log(stepName, 'stepName');\n    // app.log(sender, 'sender');\n    // let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    // app.log(stepValue, \"stepValue\");\n    app.executeApi('getLeadCity', {\n        \"number\": sender,\n    }).then(response => {\n        let city = JSON.parse(response).data.city;\n        app.log(JSON.parse(response), 'response from sendData API');\n        if(city){\n        app.setStep('user-city', undefined);\n        \nresolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: `It seems you are from ${city}.Type yes if true.`,\n                    options: [\n                        {\n                            title: \"yes\",\n                            text: \"yes\"\n                        },\n                        {\n                            title: \"no\",\n                            text: \"no\"\n                        }\n                    ]\n                });\n            }\n        });\n        }\n        else{\n            resolve();\n        }\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    });\n    resolve();\n    resolve();\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f3558b744c1193114c728d2",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f3558b744c1193114c728d2",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "noOfStudentsValidator",
+			"type": "validators",
+			"stepId": "5f35590544c1199bb1c728d3",
+			"code": "return new Promise(resolve => {\n    let studentnumber = app.data.message;\n\n    if (studentnumber) {\n        studentnumber = studentnumber.toLowerCase().trim();\n    }\n\n    let lessthan10 = /1-10|1|one/ig;\n    let lessthan50 = /11-50|2|two/ig;\n    let lessthan100 = /51-100|3|three/ig;\n    let lessthan500 = /101-500|4|four/ig;\n    let morethan500 = /More than 500|5|five/ig;\n\n\n    if (lessthan10.test(studentnumber)) {\n        app.setStep('noofstudents', '1-10');\n        \n        app.setStep('studentsnum', '1-10');\n        resolve();\n    }\n    else if (lessthan50.test(studentnumber)) {\n        app.setStep('noofstudents', '11-50');\n        app.setStep('studentsnum', '11-50');\n        resolve();\n    }\n    else if (lessthan100.test(studentnumber)) {\n        app.setStep('noofstudents', '51-100');\n        app.setStep('studentsnum', '51-100');\n        resolve();\n    } else if (lessthan500.test(studentnumber)) {\n        app.setStep('noofstudents', '101-500');\n        app.setStep('studentsnum', '101-500');\n        resolve();\n    }else if (morethan500.test(studentnumber)) {\n        app.setStep('noofstudents', 'More than 500');\n        app.setStep('studentsnum', 'More than 500');\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"1-10\",\n                            text: \"1-10\"\n                        },\n                        {\n                            title: \"11-50\",\n                            text: \"11-50\"\n                        },\n                        {\n                            title: \"51-100\",\n                            text: \"51-100\"\n                        },\n                        {\n                            title: \"101-500\",\n                            text: \"101-500\"\n                        },\n                        {\n                            title: \"More than 500\",\n                            text: \"More than 500\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f35590544c1199bb1c728d3",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "coachingTypeValidator",
+			"type": "validators",
+			"stepId": "5f35596b44c11978f6c728d4",
+			"code": "return new Promise(resolve => {\n    let coachingType = app.data.message;\n\n    if (coachingType) {\n        coachingType = coachingType.toLowerCase().trim();\n    }\n\n    let acad = /academics|1|one/ig;\n    let iitjee_neet = /iitjee|2|two|iit|neet|iitjee,neet|jee/ig;\n    let govern = /government|3|three|government exams|government exam/ig;\n    let other = /other|4|four|others/ig;\n\n    if (acad.test(coachingType)) {\n        app.setStep('coachingtype', 'Academics');\n        \n        app.setStep('ownerscoaching', 'Academics');\n        resolve();\n    }\n    else if (iitjee_neet.test(coachingType)) {\n        app.setStep('coachingtype', 'IIT JEE/NEET');\n        app.setStep('ownerscoaching', 'IIT JEE/NEET');\n        resolve();\n    }\n    else if (govern.test(coachingType)) {\n        app.setStep('coachingtype', 'Government Exams');\n        app.setStep('ownerscoaching', 'Government Exams');\n        resolve();\n    } else if (other.test(coachingType)) {\n        app.setStep('coachingtype', 'Others');\n        app.setStep('ownerscoaching', 'Others');\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Academics\",\n                            text: \"Academics\"\n                        },\n                        {\n                            title: \"IIT JEE/NEET\",\n                            text: \"IIT JEE/NEET\"\n                        },\n                        {\n                            title: \"Government Exams\",\n                            text: \"Government Exams\"\n                        },\n                        {\n                            title: \"Others\",\n                            text: \"Others\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f35596b44c11978f6c728d4",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "mobileValidator",
+			"type": "validators",
+			"stepId": "5f35599e44c1196af0c728d5",
+			"code": "return new Promise(resolve => {\n    let mobile = app.data.message;\n\n    let mobileMatches = app.utilFunctions.mobileNumValidator(mobile);\n    let stepName = app.context[\"paramExpected\"];\n    if (mobileMatches.length > 0) {\n        app.setStep(stepName, mobileMatches[0]);\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendTextMessage(`Please enter valid mobile number`);\n            }\n        })\n    }\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f35599e44c1196af0c728d5",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f355a1844c1196380c728d6",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "videoMNAprompt",
+			"type": "prompt",
+			"stepId": "5f355ace44c1195f34c728d7",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n\n    await app.sendTextMessage(`Great to hear! That is exactly what we do here at Classplus! Kindly watch this video to know more about us.`);\n    await customSleep(2000);\n    await app.sendVideo(\n        \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/experience-own-app.mp4\",\n        {\n            mime: \"video/mp4\",\n            caption: \"*Your own app* 🙂\",\n        });\n    await customSleep(5000);\n    await app.sendTextMessage(`We hope our video got you excited! What part of the app excites you the most?\n\n1. Institute Management\n2. Live/Recorded Classes\n3. Selling courses online\n4. Online Tests\n5. All of the above`);\nawait app.memory.set('delayFlag', 'id');\napp.executeFunction('delayText', {\"id\":'id',\"context\":app.context.intent,\"time\":120*1000}).then(resolve);\n\n    \n    resolve();\n});"
+		},
+		{
+			"name": "usecaseValidator",
+			"type": "validators",
+			"stepId": "5f355ace44c1195f34c728d7",
+			"code": "return new Promise(resolve => {\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, \"Institute Management\");\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, \"Live/Recorded Classes\");\n                resolve();\n            } else if (value == 3) {\n                app.setStep(stepName, \"Selling Courses Online\");\n                resolve();\n            } else if (value == 4) {\n                app.setStep(stepName, \"Online Tests\");\n                resolve();\n            } else if (value == 5) {\n                app.setStep(stepName, \"All of the above\");\n                resolve();\n            } else {\n                resolve();\n            }\n        } else {\n            resolve();\n        }\n    } else {\n        resolve();\n    }\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f355ace44c1195f34c728d7",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f355ae344c119044ec728d8",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "faqValidator",
+			"type": "validators",
+			"stepId": "5f355c9644c11952f3c72ace",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here\n    let inp = app.data.message;\n    if (inp){\n    inp = inp.trim().toLowerCase();\n    }\n\n    let inp1 = /FAQ|one|1/ig;\n    let inp2 = /Testimonials|two|2/ig;\n    let inp3 = /Classplus in media|three|3/ig;\n\n    if (inp1.test(inp)) {\n        app.setStep('faq', 'FAQ');\n        resolve();\n    }\n    else if (inp2.test(inp)) {\n        app.setStep('faq', 'Testimonials');\n        resolve();\n    }\n    else if (inp3.test(inp)) {\n        app.setStep('faq', 'Classplus in media');\n        resolve();\n    }\n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"FAQ\",\n                            text: \"FAQ\"\n                        },\n                        {\n                            title: \"Testimonials\",\n                            text: \"Testimonials\"\n                        },\n                        {\n                            title: \"Classplus in media\",\n                            text: \"Classplus in media\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n});"
+		},
+		{
+			"name": "schedulePrompt",
+			"type": "prompt",
+			"stepId": "5f35627a44c1197ad5c72f7c",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\nreturn new Promise(async resolve => {\n    // Your logic goes here\n    let k = app.context.steps[\"faq\"];\n   /* if ( k== \"FAQ\"){\n        await app.sendTextMessage(`1. How classplus can help me grow?`);\n        await customSleep(1000);\n        await app.sendVideo(\n            \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/increase-students.mp4\",\n            {\n                mime: \"video/mp4\",\n                caption: \"*#ClassplusForCoaching*!\",\n            }\n        );\n        await customSleep(3000);\n        await app.sendTextMessage(`2. How do I sell online using Classplus?`);\n        await customSleep(1000);\n        await app.sendVideo(\n            \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/Store+01.mp4\",\n            {\n                mime: \"video/mp4\",\n                caption: \"*Create and Sell your own courses*\",\n            }\n        );\n        await customSleep(3000);\n        await app.sendTextMessage(`3. How much money does Classplus help me save? \n4. How is Classplus different from other products? \n5. Is Classplus safe for my content and for my students`);*/\n //   }else \n    if (k== \"Testimonials\"){\n        await app.sendTextMessage(`Testimonials Video`);\n    }else if (k == \"Classplus in media\"){\n        await app.sendTextMessage(`We have been loved by the Tutors and the Media too.\nCheck it out:\nhttps://bit.ly/31oZdhV\nhttps://bit.ly/2DpID9F`);\n        await customSleep(2000);\n        /*await app.sendVideo({\n            url: 'https://cp-assets-public.s3.ap-south-1.amazonaws.com/cams/market/what3.mp4',\n            autoplay: true,\n            controls: true,\n            muted: true,\n            loop: false\n        });*/\n    }\n    \n    await customSleep(5000);\n    await app.sendTextMessage(`Would you like to\n1. Go to the previous choice (Type - 1)\n2. Take the first step towards your institutes digital transformation by scheduling a free demo (Type - Schedule my demo)`);\n\n    resolve();\n});"
+		},
+		{
+			"name": "scheduleValidator",
+			"type": "validators",
+			"stepId": "5f35627a44c1197ad5c72f7c",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here\n    let inp = app.data.message;\n    if (inp) {\n        inp = inp.trim().toLowerCase();\n    }\n\n    let inp1 = /Go to the previous choice|one|1/ig;\n    let inp2 = /Schedule my demo|two|2/ig;\n    \n\n    if (inp1.test(inp)) {\n        app.setStep('schedule', 'Go to the previous choice');\n        resolve();\n    }\n    else if (inp2.test(inp)) {\n        app.setStep('schedule', 'Schedule my demo');\n        app.triggerIntent(\"pre-engagement\");\n        resolve();\n    }\n    \n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Go to the previous choice\",\n                            text: \"Go to the previous choice\"\n                        },\n                        {\n                            title: \"Schedule my demo\",\n                            text: \"Schedule my demo\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n    \n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f35627a44c1197ad5c72f7c",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "faqsPrompt",
+			"type": "prompt",
+			"stepId": "5f38e9867889bb5a2296febf",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n   \n    await app.sendTextMessage(`1. How classplus can help me grow?\n2. How do I sell online using Classplus?\n3. How much money does Classplus help me save? \n4. How is Classplus different from other products? \n5. Is Classplus safe for my content and for my students`);\n\nawait customSleep(1000);\nawait app.sendTextMessage(`Choose a number`);\n    resolve();\n});"
+		},
+		{
+			"name": "faqsValid",
+			"type": "validators",
+			"stepId": "5f38e9867889bb5a2296febf",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here\n    let k = app.data.message;\n    \n    k = k.trim().toLowerCase();\n    if (/1|one/ig.test(k)){\n        app.setStep('faqs', 'helpmegrow');\n        resolve();\n    } else if (/2|two/ig.test(k)){\n        app.setStep('faqs', '2');\n        resolve();\n    } else if (/3|three/ig.test(k)) {\n        app.setStep('faqs', '3');\n        resolve();\n    } else if (/4|four/ig.test(k)) {\n        app.setStep('faqs', '4');\n        resolve();\n    } else if (/5|five/ig.test(k)) {\n        app.setStep('faqs', '5');\n        resolve();\n    }\n   // resolve();\n   else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendTextMessage(\"Sorry! I coudn't understand that. Please choose from the above options.\")\n            }\n        })\n    }\n   \n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f38e9867889bb5a2296febf",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "contentPrompt",
+			"type": "prompt",
+			"stepId": "5f3a3e2c7889bbf942972622",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n    let prev = app.context.steps[\"faqs\"];\n    if (prev == \"helpmegrow\"){\n        await app.sendVideo(\n            \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/increase-students.mp4\",\n            {\n                mime: \"video/mp4\",\n                caption: \"*#ClassplusForCoaching*!\",\n            });\n    }else if (prev == \"2\"){\n        await app.sendVideo(\n            \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/Store+01.mp4\",\n            {\n                mime: \"video/mp4\",\n                caption: \"*Create and Sell your own courses*\",\n            }\n        );\n    } else if (prev == \"3\") {\n        await app.sendTextMessage(`If you create your own app, then app development, hosting and maintenance will cost you Rs. xx every year. \nClassplus provides all this and more at an annual subscription starting at ₹ 15,000 per year. \nThat’s an annual cost saving of xyz. \nThat is why 6000+ coaching centres trust Classplus`);\n    } else if (prev == \"4\") {\n        await app.sendImage();\n        await customSleep(1000);\n        await app.sendTextMessage(`Only Classplus offers all these features in one app`);\n\n    } else if (prev == \"5\") {\n        await app.sendTextMessage(`Any content you upload on Classplus can only be accessed by students in your batch and by students who have purchased your course. \nMoreover, Classplus ensures that these students only access your content on your app which is secured by the highly revered (SSL) encryption, and cannot get access to the files themselves. \nThis ensures that your content stays safe and is secure from the risk of being pirated, that flash drives and YouTube videos cannot guarantee. \nAt the same time, since your personalised app will allow students to access your content offline on the app, it also ensures high ease of learning. \nHence, Classplus gives you the best of both worlds.`);\n\n    }\n    await customSleep(3000);\n    await app.sendTextMessage(`Would you like to\n1. Go Back to FAQ (Type - 1)\n2. Go Back to initial Menu (Type - 2)\n3. Take the first step towards your institutes digital transformation by scheduling a free demo (Type - Schedule my demo)`);\n    resolve();\n});"
+		},
+		{
+			"name": "contentValidator",
+			"type": "validators",
+			"stepId": "5f3a3e2c7889bbf942972622",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here\n\n    let k = app.data.message;\n    if (k){\n    k = k.trim().toLowerCase();\n    }\n    let i1 = /1|one|Back to FAQ/ig;\n    let i2 = /2|two|Back to initial Menu/ig;\n    let i3 = /Schedule my demo|3|three/ig;\n    if (i1.test(k)){\n        app.setStep('content','Back to FAQ');\n        resolve();\n\n    } else if (i2.test(k)){\n        app.setStep('content','Back to initial Menu');\n        resolve();\n    } else if (i3.test(k)){\n        app.setStep('content', 'Schedule my demo');\n        app.triggerIntent(\"pre-engagement\");\n        resolve();\n    }\n   // resolve();\n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Back to FAQ\",\n                            text: \"Back to FAQ\"\n                        },\n                        {\n                            title: \"Back to initial Menu\",\n                            text: \"Back to initial Menu\"\n                        },\n                        {\n                            title: \"Schedule my demo\",\n                            text: \"Schedule my demo\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDataToAPI",
+			"type": "validators",
+			"stepId": "5f3a3e2c7889bbf942972622",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		}
+	]
+}

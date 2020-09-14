@@ -1,0 +1,400 @@
+{
+	"journey": {
+		"steps": [
+			{
+				"id": "5f23f4f48814f6867cf711c2",
+				"slug": "demochoice"
+			},
+			{
+				"id": "5f23f4f48814f63debf711c3",
+				"slug": "getreason"
+			},
+			{
+				"id": "5f23f4f48814f6b40ef711c4",
+				"slug": "choicecontent"
+			},
+			{
+				"id": "5f27da498814f63cb3f7b4ce",
+				"slug": "triggernewjourney"
+			}
+		],
+		"deleted": false,
+		"defaultJourney": false,
+		"actions": {
+			"response": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"No problem! Whenever you feel the need please type 'Hi Classplus' and I'll be here for you. 🙂"
+					]
+				}
+			],
+			"meetingScheduled": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Scheduled\n"
+					]
+				},
+				{
+					"type": "TriggerIntent",
+					"id": 1
+				}
+			]
+		},
+		"stepConditions": [],
+		"saveJourneyResponses": false,
+		"name": "MNA bot",
+		"description": "Meeting not assigned",
+		"categoryType": "Default Category",
+		"survey": false,
+		"slug": "mna-bot",
+		"__v": 6,
+		"conditionalNodes": {
+			"demochoice": {
+				"name": "demoChoice condition",
+				"step": "demochoice",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Schedule my demo",
+						"next": "__action__meetingScheduled",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "getreason"
+				}
+			},
+			"getreason": {
+				"name": "getReason condition",
+				"step": "getreason",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Showed interest by mistake",
+						"next": "__action__response",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "choicecontent"
+				}
+			},
+			"triggernewjourney": {
+				"name": "triggerNewJourney condition",
+				"step": "triggernewjourney",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "No",
+						"next": "__action__response",
+						"type": "step",
+						"ignoreCase": true
+					}
+				]
+			}
+		},
+		"nodePositions": {
+			"__trigger__": {
+				"x": 216,
+				"y": 51
+			},
+			"demochoice": {
+				"x": 372,
+				"y": 38
+			},
+			"__condition__demochoice": {
+				"x": 377,
+				"y": 115
+			},
+			"getreason": {
+				"x": 203,
+				"y": 254
+			},
+			"meetingscheduled": {
+				"x": 540,
+				"y": 135
+			},
+			"__condition__getreason": {
+				"x": 209,
+				"y": 338
+			},
+			"__action__response": {
+				"x": 200,
+				"y": 550
+			},
+			"choicecontent": {
+				"x": 534,
+				"y": 363
+			},
+			"__action__meetingScheduled": {
+				"x": 594,
+				"y": 185
+			},
+			"__condition__mna": {
+				"x": 113,
+				"y": 121
+			},
+			"triggernewjourney": {
+				"x": 581,
+				"y": 497
+			},
+			"__condition__triggernewjourney": {
+				"x": 553,
+				"y": 541
+			}
+		},
+		"start": "getreason"
+	},
+	"stepsMap": {
+		"5f23f4f48814f6867cf711c2": {
+			"deleted": false,
+			"slug": "demochoice",
+			"defaultStep": false,
+			"name": "demoChoice",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Input Message - \n1. Schedule my demo \n2. I'm not interested\n"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Input Message - "
+						],
+						"options": [
+							{
+								"title": "Schedule my demo",
+								"text": "Schedule my demo"
+							},
+							{
+								"title": "I'm not interested",
+								"text": "I'm not interested"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "demoChoiceValidator"
+				}
+			]
+		},
+		"5f23f4f48814f63debf711c3": {
+			"deleted": false,
+			"slug": "getreason",
+			"defaultStep": false,
+			"name": "getReason",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Ohh! 😯 \nI'm extremely sad about that. \nJust for our feedback, would you mind telling us what went wrong?\n\n*1.* Showed interest by mistake\n*2.* Change of mind\n*3.* Got a better product\n*4.* Was just checking\n*5.* Don't have an immediate need"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Ohh! 😯 \nI'm extremely sad about that. \nJust for our feedback, would you mind telling us what went wrong?"
+						],
+						"options": [
+							{
+								"title": "Showed interest by mistake",
+								"text": "Showed interest by mistake"
+							},
+							{
+								"title": "Change of mind",
+								"text": "Change of mind"
+							},
+							{
+								"title": "Got a better product",
+								"text": "Got a better product"
+							},
+							{
+								"title": "Was just checking",
+								"text": "Was just checking"
+							},
+							{
+								"title": "Don't have an immediate need",
+								"text": "Don't have an immediate need"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "getReasonValidator"
+				}
+			]
+		},
+		"5f23f4f48814f6b40ef711c4": {
+			"deleted": false,
+			"slug": "choicecontent",
+			"defaultStep": false,
+			"name": "choiceContent",
+			"__v": 13,
+			"validators": [
+				{
+					"type": "regex",
+					"id": 1,
+					"regexType": "Custom",
+					"regex": "okay",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": "Type *Okay* to continue"
+				},
+				{
+					"type": "regex",
+					"id": 1,
+					"regexType": "Custom",
+					"regex": "ok",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": ""
+				}
+			],
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "choiceContentPrompt"
+				}
+			],
+			"responses": {
+				"greeting": [],
+				"okay": []
+			},
+			"next": "triggernewjourney"
+		},
+		"5f27da498814f63cb3f7b4ce": {
+			"deleted": false,
+			"slug": "triggernewjourney",
+			"defaultStep": false,
+			"name": "triggerNewJourney",
+			"__v": 32,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Do you want to schedule a demo?\n\n*1.* Yes\n*2.* No"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			],
+			"responses": {
+				"yes": [
+					{
+						"type": "TriggerIntent",
+						"id": 0,
+						"trigger": "pre-engagement"
+					}
+				]
+			}
+		}
+	},
+	"training": [
+		{
+			"noun_chunks": [],
+			"text": "I'm not interested",
+			"keywords": [],
+			"intent": "mna-bot",
+			"deleted": false,
+			"__v": 0
+		}
+	],
+	"functions": [
+		{
+			"name": "demoChoiceValidator",
+			"type": "validators",
+			"stepId": "5f23f4f48814f6867cf711c2",
+			"code": "return new Promise(resolve => {\n    let demochoice = app.data.message;\n\n    if (demochoice) {\n        demochoice = demochoice.toLowerCase().trim();\n    }\n\n    let scheduledemoregex = /schedule demo|1|one|demo|schedule my demo/ig;\n    let notinterested = /I'm not interested|2|two|not interested|I am not interested/ig;\n\n\n    if (scheduledemoregex.test(demochoice)) {\n        app.setStep('demochoice', 'Schedule my demo');\n\n        resolve();\n    }\n    else if (notinterested.test(demochoice)) {\n        app.setStep('demochoice', 'I\\'m not interested');\n\n        resolve();\n    }\n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Schedule my demo\",\n                            text: \"Schedule my demo\"\n                        },\n                        {\n                            title: \"I'm not interested\",\n                            text: \"I'm not interested\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "getReasonValidator",
+			"type": "validators",
+			"stepId": "5f23f4f48814f63debf711c3",
+			"code": "return new Promise(resolve => {\n    let reason = app.data.message;\n\n    if (reason) {\n        reason = reason.toLowerCase().trim();\n    }\n\n    let interest = /Showed interest by mistake|by mistake|1|one/ig;\n    let mind = /Change of mind|2|two/ig;\n    let productIssue = /Got a better product|better product|3|three/ig;\n    let check = /Was just checking|checking|4|four/ig;\n    let needTime = /five|5|Don't have an immediate need|no need|dont have need|dont have immediate need/ig;\n\n    if (interest.test(reason)) {\n        app.setStep('getreason', 'Showed interest by mistake');\n\n        resolve();\n    }\n    else if (mind.test(reason)) {\n        app.setStep('getreason', 'Change of mind');\n\n        resolve();\n    }\n    else if (productIssue.test(reason)) {\n        app.setStep('getreason', 'Got a better product');\n\n        resolve();\n    } else if (check.test(reason)) {\n        app.setStep('getreason', 'Was just checking');\n\n        resolve();\n    } else if (needTime.test(reason)) {\n        app.setStep('getreason', 'Don\\'t have an immediate need');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Showed interest by mistake\",\n                            text: \"Showed interest by mistake\"\n                        },\n                        {\n                            title: \"Change of mind\",\n                            text: \"Change of mind\"\n                        },\n                        {\n                            title: \"Got a better product\",\n                            text: \"Got a better product\"\n                        },\n                        {\n                            title: \"Was just checking\",\n                            text: \"Was just checking\"\n                        },\n                        {\n                            title: \"Don't have an immediate need\",\n                            text: \"Don't have an immediate need\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "choiceContentPrompt",
+			"type": "prompt",
+			"stepId": "5f23f4f48814f6b40ef711c4",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\n\nreturn new Promise(async resolve => {\n    let getreasonstep = app.context.steps[\"getreason\"];\n\n\n    if (getreasonstep == \"Change of mind\") {\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video..`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/trailer.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"Are you sure you want to miss this out? 😳\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        //resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`Type \"Okay\" to continue`);\n\n    } else if (getreasonstep == \"Got a better product\") {\n\n\n        await app.sendImage(\"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/classplus-advantage.jpeg\", {\n            mime: \"image/jpg\",\n            caption: \"Ohh! So it would seem, but does the product give these? 🤔\",\n        });\n        //resolve();\n        await customSleep(3000);\n        await app.sendTextMessage(`Type \"Okay\" to continue`);\n\n    } else if (getreasonstep == \"Was just checking\") {\n\n\n        await app.sendImage(\"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/tutors-near-you.jpeg\", {\n            mime: \"image/jpg\",\n            caption: \"No problem, That's how they also started, by *just checking*. 😉 But they love us much more now. 🙂\",\n        });\n       // resolve();\n        await customSleep(3000);\n        await app.sendTextMessage(`Type \"Okay\" to continue`);\n\n    } else if (getreasonstep == \"Don't have an immediate need\") {\n\n\n        await app.sendImage(\"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/fomo.jpeg\", {\n            mime: \"image/jpg\",\n            caption: \"Ok. But do you know that you are *already late?* 🏃🏻🏃🏻\",\n        });\n        //resolve();\n        await customSleep(3000);\n        await app.sendTextMessage(`Type \"Okay\" to continue`);\n        }\n         resolve();\n\n    \n\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f27da498814f63cb3f7b4ce",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		}
+	]
+}

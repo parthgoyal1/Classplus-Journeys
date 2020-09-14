@@ -1,0 +1,1384 @@
+{
+	"journey": {
+		"steps": [
+			{
+				"id": "5f1593e99bc1873b23fcbd57",
+				"slug": "customerchoice"
+			},
+			{
+				"id": "5f1593e99bc1876d41fcbd58",
+				"slug": "classplusinfo"
+			},
+			{
+				"id": "5f1593e99bc1872196fcbd59",
+				"slug": "inforeq"
+			},
+			{
+				"id": "5f1593e99bc1879c5bfcbd5a",
+				"slug": "repeatinfo"
+			},
+			{
+				"id": "5f229c108814f67d85f68c5c",
+				"slug": "endvideo"
+			},
+			{
+				"id": "5f1593e99bc187af7ffcbd5b",
+				"slug": "demotime"
+			},
+			{
+				"id": "5f1593e99bc187a436fcbd5c",
+				"slug": "confirmdemo"
+			},
+			{
+				"id": "5f1593e99bc1870fc0fcbd5d",
+				"slug": "demoset"
+			},
+			{
+				"id": "5f1593e99bc1878e8afcbd5e",
+				"slug": "platformname"
+			},
+			{
+				"id": "5f1593e99bc1878ee0fcbd5f",
+				"slug": "fixdemodate"
+			},
+			{
+				"id": "5f1593e99bc1871f50fcbd60",
+				"slug": "settime"
+			},
+			{
+				"id": "5f1593e99bc187aee6fcbd61",
+				"slug": "previousplatform"
+			},
+			{
+				"id": "5f1593e99bc18744fefcbd62",
+				"slug": "coachingtype"
+			},
+			{
+				"id": "5f1593e99bc18705acfcbd63",
+				"slug": "noofstudents"
+			},
+			{
+				"id": "5f1593e99bc18753f6fcbd64",
+				"slug": "onlineclass"
+			},
+			{
+				"id": "5f1593e99bc1871ef9fcbd65",
+				"slug": "subscriberscount"
+			}
+		],
+		"deleted": false,
+		"defaultJourney": false,
+		"actions": {
+			"response": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "preEngageFinal"
+				}
+			]
+		},
+		"stepConditions": [],
+		"saveJourneyResponses": false,
+		"name": "pre engagement",
+		"description": "Pre Engagement Bot",
+		"categoryType": "Default Category",
+		"survey": false,
+		"slug": "pre-engagement",
+		"__v": 7,
+		"conditionalNodes": {
+			"customerchoice": {
+				"name": "customerChoice condition",
+				"step": "customerchoice",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Schedule a Demo",
+						"next": "coachingtype",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "coachingtype"
+				}
+			},
+			"onlineclass": {
+				"name": "onlineClass condition",
+				"step": "onlineclass",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "yes",
+						"next": "subscriberscount",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "previousplatform"
+				}
+			},
+			"confirmdemo": {
+				"name": "confirmDemo condition",
+				"step": "confirmdemo",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "no",
+						"next": "fixdemodate",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "demoset"
+				}
+			},
+			"demoset": {
+				"name": "demoSet condition",
+				"step": "demoset",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "No",
+						"next": "__action__response",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "classplusinfo"
+				}
+			},
+			"classplusinfo": {
+				"name": "classplusInfo condition",
+				"step": "classplusinfo",
+				"rules": [],
+				"defaultRule": {
+					"next": "inforeq"
+				}
+			},
+			"repeatinfo": {
+				"name": "RepeatInfo condition",
+				"step": "repeatinfo",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Schedule a Demo",
+						"next": "coachingtype",
+						"type": "step",
+						"ignoreCase": true
+					},
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Exit",
+						"next": "__action__response",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "inforeq"
+				}
+			},
+			"previousplatform": {
+				"name": "previousPlatform condition",
+				"step": "previousplatform",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "no",
+						"next": "demotime",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "platformname"
+				}
+			}
+		},
+		"nodePositions": {
+			"__trigger__": {
+				"x": 29,
+				"y": 13
+			},
+			"__action__": {
+				"x": 203,
+				"y": 1023
+			},
+			"step1": {
+				"x": 205,
+				"y": 156
+			},
+			"__condition__step1": {
+				"x": 400,
+				"y": 100
+			},
+			"step2": {
+				"x": 580,
+				"y": 269
+			},
+			"step3": {
+				"x": 163,
+				"y": 318
+			},
+			"step4": {
+				"x": 578,
+				"y": 401
+			},
+			"__condition__step3": {
+				"x": 326,
+				"y": 408
+			},
+			"customerchoice": {
+				"x": 13,
+				"y": 113
+			},
+			"__condition__customerchoice": {
+				"x": 198,
+				"y": 10
+			},
+			"coachingtype": {
+				"x": 607,
+				"y": 68
+			},
+			"noofstudents": {
+				"x": 671,
+				"y": 171
+			},
+			"onlineclass": {
+				"x": 985,
+				"y": 170
+			},
+			"__condition__onlineclass": {
+				"x": 889,
+				"y": 10
+			},
+			"subscriberscount": {
+				"x": 1018,
+				"y": 252
+			},
+			"previousplatform": {
+				"x": 901,
+				"y": 310
+			},
+			"demotime": {
+				"x": 686,
+				"y": 468
+			},
+			"confirmdemo": {
+				"x": 728,
+				"y": 569
+			},
+			"__condition__confirmdemo": {
+				"x": 763,
+				"y": 666
+			},
+			"fixdemodate": {
+				"x": 539,
+				"y": 790
+			},
+			"__condition__fixdemodate": {
+				"x": 723,
+				"y": 873
+			},
+			"classplusinfo": {
+				"x": 252,
+				"y": 315
+			},
+			"demoset": {
+				"x": 458,
+				"y": 632
+			},
+			"__condition__demoset": {
+				"x": 413,
+				"y": 376
+			},
+			"settime": {
+				"x": 951,
+				"y": 828
+			},
+			"__condition__classplusinfo": {
+				"x": 39,
+				"y": 348
+			},
+			"inforequest": {
+				"x": 59,
+				"y": 697
+			},
+			"repeatinfo": {
+				"x": 28,
+				"y": 598
+			},
+			"__condition__repeatinfo": {
+				"x": 221,
+				"y": 526
+			},
+			"__condition__previousplatform": {
+				"x": 1196,
+				"y": 419
+			},
+			"platformname": {
+				"x": 1038,
+				"y": 337
+			},
+			"custname": {
+				"x": 37,
+				"y": 119
+			},
+			"inforeq": {
+				"x": 33,
+				"y": 511
+			},
+			"__action__response": {
+				"x": 231,
+				"y": 854
+			},
+			"endvideo": {
+				"x": 245,
+				"y": 754
+			},
+			"cbua": {
+				"x": 801,
+				"y": 296
+			}
+		},
+		"start": "customerchoice"
+	},
+	"stepsMap": {
+		"5f1593e99bc18744fefcbd62": {
+			"deleted": false,
+			"slug": "coachingtype",
+			"defaultStep": false,
+			"name": "coachingType",
+			"__v": 2,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Awesome! What do you teach? 🏫\n*1.* Academics\n*2.* IIT JEE/NEET\n*3.* Government Exams\n*4.* Others"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 2,
+					"quickReplies": {
+						"title": [
+							"Awesome! For that can you tell us what type of coaching institute do you run:"
+						],
+						"options": [
+							{
+								"title": "Academics",
+								"text": "Academics"
+							},
+							{
+								"title": "IIT JEE/NEET",
+								"text": "IIT JEE/NEET"
+							},
+							{
+								"title": "Government Exams",
+								"text": "Government Exams"
+							},
+							{
+								"title": "Others",
+								"text": "Others"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "coachingTypeValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			],
+			"next": "noofstudents"
+		},
+		"5f1593e99bc1873b23fcbd57": {
+			"deleted": false,
+			"slug": "customerchoice",
+			"defaultStep": false,
+			"name": "customerChoice",
+			"__v": 21,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Namaste! 🙏🏻\n\nGet ready to grow your coaching business by 2X.\nWe have been trying to contact you repeatedly via phone. Experience how Classplus can help you earn more.\n\nType *1* to Schedule a Demo"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Namaste! 🙏🏻\n\nGet ready to grow your coaching business by 2X.\nWe have been trying to contact you repeatedly via phone. Experience how Classplus can help you earn more.\n\nType 1 to Schedule a Demo"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "customeChoiceValidator"
+				}
+			],
+			"responses": {
+				"greeting": []
+			}
+		},
+		"5f1593e99bc1876d41fcbd58": {
+			"deleted": false,
+			"slug": "classplusinfo",
+			"defaultStep": false,
+			"name": "classplusInfo",
+			"__v": 9,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"*Classplus* helps you grow your coaching business by enabling you to digitally communicate with your students, share online study material, conduct online tests, accept online payments and sell your study material through your coaching's own mobile app. 🙂\n\n*1.* Tell me more about Classplus. 📹\n*2.* Do teachers love Classplus? ❤️\n*3.* How will Classplus help me grow my coaching institute? ⬆️\n\n💡 _Tip: You can type 1, 2, 3, 4 to make a selection of the menu options_"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"*Classplus* helps you grow your coaching business by enabling you to digitally communicate with your students, share online study material, conduct online tests, accept online payments and sell your study material through your coaching's own mobile app. 🙂\n\n*1.* Tell me more about Classplus. 📹\n*2.* Do teachers love Classplus? ❤️\n*3.* How will Classplus help me grow my coaching institute? ⬆️\n\n💡 _Tip: You can type 1, 2, 3, 4 to make a selection of the menu options_"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "classplusInfoValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc187a436fcbd5c": {
+			"deleted": false,
+			"slug": "confirmdemo",
+			"defaultStep": false,
+			"name": "confirmDemo",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "confirmDemoPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1871f50fcbd60": {
+			"deleted": false,
+			"slug": "settime",
+			"defaultStep": false,
+			"name": "setTime",
+			"__v": 9,
+			"next": "confirmdemo",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"And what time is suitable for you?\n\n*1.* 9am-11am\n*2.* 12pm-2pm\n*3.* 3pm-5pm\n*4.* 6pm-8pm\n*5.* *Now*\n\n💡 _Tip: If you didn't find your meeting the first time, try a different slot_"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"What time is suitable for you?\n"
+						],
+						"options": [
+							{
+								"title": "9am - 11am",
+								"text": "9am - 11am"
+							},
+							{
+								"title": "12pm-2pm",
+								"text": "12pm-2pm"
+							},
+							{
+								"title": "3pm-5pm",
+								"text": "3pm-5pm"
+							},
+							{
+								"title": "6pm-8pm",
+								"text": "6pm-8pm"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "demoTimeValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc187aee6fcbd61": {
+			"deleted": false,
+			"slug": "previousplatform",
+			"defaultStep": false,
+			"name": "previousPlatform",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Okay! Have you used any platform previously?\n*1.* Yes\n*2.* No"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Okay! Have you used any platform previously?"
+						],
+						"options": [
+							{
+								"title": "Yes",
+								"text": "Yes"
+							},
+							{
+								"title": "No",
+								"text": "No"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			],
+			"next": "demotime"
+		},
+		"5f1593e99bc1878e8afcbd5e": {
+			"deleted": false,
+			"slug": "platformname",
+			"defaultStep": false,
+			"name": "platformName",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"And if you remember, what's the name of the platform?"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "removeStopWords"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			],
+			"next": "demotime"
+		},
+		"5f1593e99bc1878ee0fcbd5f": {
+			"deleted": false,
+			"slug": "fixdemodate",
+			"defaultStep": false,
+			"name": "fixDemoDate",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Okay! Nothing to worry about. 🙂\nLet us try again. What *day* is suitable for you?📅\n\n*1.* Today\n*2.* Tomorrow\n*3.* Day After"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Okay! Let us try again. What day is suitable for you?"
+						],
+						"options": [
+							{
+								"title": "Today",
+								"text": "Today"
+							},
+							{
+								"title": "Tomorrow",
+								"text": "Tomorrow"
+							},
+							{
+								"title": "Day After",
+								"text": "Day After"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "fixDemoDateValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			],
+			"next": "settime"
+		},
+		"5f1593e99bc1871ef9fcbd65": {
+			"deleted": false,
+			"slug": "subscriberscount",
+			"defaultStep": false,
+			"name": "subscribersCount",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Super! 🙂 How many subscribers do you have on YouTube/Instagram/Telegram etc.?\n\n*1.* 0-1000\n*2.* 1001-5000\n*3.* 5001-25000\n*4.* More than 25000\n\n💡 _Tip: You can type 1, 2, 3, 4 to make a selection of the menu options_"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Super! How many subscribers do you have on YouTube?\n"
+						],
+						"options": [
+							{
+								"title": "0-1000",
+								"text": "0-1000"
+							},
+							{
+								"title": "1001-5000",
+								"text": "1001-5000"
+							},
+							{
+								"title": "5001-25000",
+								"text": "5001-25000"
+							},
+							{
+								"title": "More than 25000",
+								"text": "More than 25000"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"next": "previousplatform",
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "subscribersCountValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1870fc0fcbd5d": {
+			"deleted": false,
+			"slug": "demoset",
+			"defaultStep": false,
+			"name": "demoSet",
+			"__v": 4,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 2,
+					"func": "demoSetPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc1872196fcbd59": {
+			"deleted": false,
+			"slug": "inforeq",
+			"defaultStep": false,
+			"name": "inforeq",
+			"__v": 1,
+			"next": "repeatinfo",
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "infoRequestPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "regex",
+					"id": 0,
+					"regexType": "Custom",
+					"regex": "[ok]",
+					"fallBackMessage": "Type *Ok* to continue.",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					]
+				},
+				{
+					"type": "regex",
+					"id": 1,
+					"regexType": "Custom",
+					"regex": "[okay]",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": "Type *Ok* to continue."
+				}
+			]
+		},
+		"5f1593e99bc1879c5bfcbd5a": {
+			"deleted": false,
+			"slug": "repeatinfo",
+			"defaultStep": false,
+			"name": "RepeatInfo",
+			"__v": 3,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"I hope you liked us. 😊 \nSo what shall I do next for you?\n\n*1.* Tell me more about Classplus. 📹\n*2.* Do teachers love Classplus? ❤️\n*3.* How will Classplus help me grow my coaching institute? ⬆️\n*4.* Exit 😒"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"What's next?"
+						],
+						"options": [
+							{
+								"title": "I want to watch a demo video",
+								"text": "I want to watch a demo video"
+							},
+							{
+								"title": "Who all are using Classplus?",
+								"text": "Who all are using Classplus?"
+							},
+							{
+								"title": "How will Classplus help me grow my coaching institute?",
+								"text": "How will Classplus help me grow my coaching institute?"
+							},
+							{
+								"title": "Schedule a Demo",
+								"text": "Schedule a Demo"
+							},
+							{
+								"title": "Exit",
+								"text": "Exit"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "repeatInfoValidator"
+				}
+			]
+		},
+		"5f1593e99bc187af7ffcbd5b": {
+			"deleted": false,
+			"slug": "demotime",
+			"defaultStep": false,
+			"name": "demoTime",
+			"__v": 35,
+			"next": "confirmdemo",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Got it. What is your preferred time for a demo? ⏰\n\n*1.* 9am-11am\n*2.* 12pm-2pm\n*3.* 3pm-5pm\n*4.* 6pm-8pm\n*5.* *Now*\n\n💡 _Tip: You can type 1, 2, 3, 4, 5 to make a selection of the menu options_"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"viber",
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 1,
+					"messages": [
+						"Got it. What is your preferred time for a demo? ⏰\n\n*1.* 9am-11am\n*2.* 12pm-2pm\n*3.* 3pm-5pm\n*4.* 6pm-8pm\n*5.* *Now*"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": 2,
+					"messages": [
+						""
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "demoTimeValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc18705acfcbd63": {
+			"deleted": false,
+			"slug": "noofstudents",
+			"defaultStep": false,
+			"name": "noOfStudents",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"That's interesting! And how many *students* do you have? 🧑‍🎓🧑‍🎓🧑‍🎓\n\n*1.* 1-10\n*2.* 11-50\n*3.* 51-100\n*4.* 101-500\n*5.* More than 500"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"That's interesting! And how many students do you have?"
+						],
+						"options": [
+							{
+								"title": "1-10",
+								"text": "1-10"
+							},
+							{
+								"title": "11-50",
+								"text": "11-50"
+							},
+							{
+								"title": "51-100",
+								"text": "51-100"
+							},
+							{
+								"title": "101-500",
+								"text": "101-500"
+							},
+							{
+								"title": "More than 500",
+								"text": "More than 500"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			],
+			"next": "demotime",
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "noOfStudentsValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			]
+		},
+		"5f1593e99bc18753f6fcbd64": {
+			"deleted": false,
+			"slug": "onlineclass",
+			"defaultStep": false,
+			"name": "onlineClass",
+			"__v": 0,
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"func": "sendDemoDataToAPI"
+				}
+			],
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Alright! Do you teach students online as well? 💻📱\n\n*1.* Yes\n*2.* No"
+					],
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					]
+				},
+				{
+					"type": "quickReplies",
+					"id": 1,
+					"quickReplies": {
+						"title": [
+							"Alright! Do you teach students online as well?"
+						],
+						"options": [
+							{
+								"title": "Yes",
+								"text": "Yes"
+							},
+							{
+								"title": "No",
+								"text": "No"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				}
+			]
+		},
+		"5f229c108814f67d85f68c5c": {
+			"deleted": false,
+			"slug": "endvideo",
+			"defaultStep": false,
+			"name": "endVideo",
+			"__v": 2,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "endVideo"
+				}
+			],
+			"next": null
+		}
+	},
+	"training": [],
+	"functions": [
+		{
+			"name": "coachingTypeValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc18744fefcbd62",
+			"code": "return new Promise(resolve => {\n    let coachingType = app.data.message;\n\n    if (coachingType) {\n        coachingType = coachingType.toLowerCase().trim();\n    }\n\n    let acad = /academics|1|one/ig;\n    let iitjee_neet = /iitjee|2|two|iit|neet|iitjee,neet|jee/ig;\n    let govern = /government|3|three|government exams|government exam/ig;\n    let other = /other|4|four|others/ig;\n\n    if (acad.test(coachingType)) {\n        app.setStep('coachingtype', 'Academics');\n        \n        app.setStep('ownerscoaching', 'Academics');\n        resolve();\n    }\n    else if (iitjee_neet.test(coachingType)) {\n        app.setStep('coachingtype', 'IIT JEE/NEET');\n        app.setStep('ownerscoaching', 'IIT JEE/NEET');\n        resolve();\n    }\n    else if (govern.test(coachingType)) {\n        app.setStep('coachingtype', 'Government Exams');\n        app.setStep('ownerscoaching', 'Government Exams');\n        resolve();\n    } else if (other.test(coachingType)) {\n        app.setStep('coachingtype', 'Others');\n        app.setStep('ownerscoaching', 'Others');\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Academics\",\n                            text: \"Academics\"\n                        },\n                        {\n                            title: \"IIT JEE/NEET\",\n                            text: \"IIT JEE/NEET\"\n                        },\n                        {\n                            title: \"Government Exams\",\n                            text: \"Government Exams\"\n                        },\n                        {\n                            title: \"Others\",\n                            text: \"Others\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18744fefcbd62",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "customeChoiceValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1873b23fcbd57",
+			"code": "return new Promise(resolve => {\n    let consumerchoice = app.data.message;\n\n    if (consumerchoice) {\n        consumerchoice = consumerchoice.toLowerCase().trim();\n    }\n\n    let scheduledemoregex = /schedule demo|1|one|demo|schedule a demo/ig;\n    //let classplusinforegex = /know more|2|two|know more about classplus|about classplus/ig;\n\n\n    if (scheduledemoregex.test(consumerchoice)) {\n        app.setStep('customerchoice', 'Schedule a Demo');\n       \n        resolve();\n    }\n    \n     else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Schedule a Demo\",\n                            text: \"Schedule a Demo\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "classplusInfoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1876d41fcbd58",
+			"code": "return new Promise(resolve => {\n    let info = app.data.message;\n\n    if (info) {\n        info = info.toLowerCase().trim();\n    }\n\n    let video = /Tell me more about Classplus.|more about Classplus|about Classplus|Classplus|watch video|watch demo video|1|one/ig;\n    let image = /Do teachers love Classplus?|teachers love Classplus?|users classplus|Who all are using Classplus|2|two/ig;\n    let link = /How will Classplus help me grow my coaching institute?|How will Classplus help me grow my coaching institute|How will Classplus help me grow my coaching|grow my institute|3|three/ig;\n    let demo = /Schedule a Demo|demo|4|four/ig;\n\n    if (video.test(info)) {\n        app.setStep('classplusinfo', 'Tell me more about Classplus.');\n\n        resolve();\n    }\n    else if (image.test(info)) {\n        app.setStep('classplusinfo', 'Do teachers love Classplus?');\n\n        resolve();\n    }\n    else if (link.test(info)) {\n        app.setStep('classplusinfo', 'How will Classplus help me grow my coaching institute?');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Tell me more about Classplus.\",\n                            text: \"Tell me more about Classplus.\"\n                        },\n                        {\n                            title: \"Do teachers love Classplus?\",\n                            text: \"Do teachers love Classplus?\"\n                        },\n                        {\n                            title: \"How will Classplus help me grow my coaching institute?\",\n                            text: \"How will Classplus help me grow my coaching institute?\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1876d41fcbd58",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "confirmDemoPrompt",
+			"type": "prompt",
+			"stepId": "5f1593e99bc187a436fcbd5c",
+			"code": "return new Promise(resolve => {\n   // Your logic goes here\n    \n    let days = function (month, year) {\n        return new Date(year, month, 0).getDate();\n    };\n\n    app.log(\"coming in confirm demo promot\")\n    let timeValue = app.context.steps[\"settime\"] ? app.context.steps[\"settime\"] : app.context.steps[\"demotime\"]\n    let demotimeinp = app.source == 'whatsapp' ? `*${timeValue}*` : timeValue;\n    let currDay = new Date();\n    let currTime = currDay.getHours();\n\n    let yes = \"Yes\";\n    let no = \"No\";\n\n\n    if (app.source == 'whatsapp') {\n        yes = \"*Yes*\"\n        no = \"*No*\"\n\n    }\n    let demodayinp;\n    if(demotimeinp==\"now\"){\n        demodayinp = currDay.getDate() + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n    }\n    else{\n        let inpTime = parseInt(demotimeinp);\n        if (inpTime == 3 || inpTime == 6) {\n            app.log(\">>>\");\n            inpTime = inpTime + 12;\n        }\n        if (inpTime-currTime >= 2) {\n            demodayinp = currDay.getDate() + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n        }\n        else {\n            demodayinp = (currDay.getDate() + 1) + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n            if (currDay.getDate() + 1 > days((currDay.getMonth() + 1), currDay.getFullYear())) {\n                demodayinp = (currDay.getDate() + 1 - days((currDay.getMonth() + 1), currDay.getFullYear())) + '-' + (currDay.getMonth() + 2) + '-' + currDay.getFullYear();\n            }\n        }\n    }\n    if (app.context.steps[\"fixdemodate\"]) {\n        demodayinp = app.source == 'whatsapp' ? `*${app.context.steps[\"fixdemodate\"]}*` : app.context.steps[\"fixdemodate\"];\n    }\n    \n    if (demodayinp == 'Today') {\n        demodayinp = currDay.getDate() + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n    } else if (demodayinp == 'Tomorrow') {\n        demodayinp = (currDay.getDate() + 1) + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n        if (currDay.getDate() + 1 > days((currDay.getMonth() + 1), currDay.getFullYear())) {\n            demodayinp = (currDay.getDate() + 1 - days((currDay.getMonth() + 1), currDay.getFullYear())) + '-' + (currDay.getMonth() + 2) + '-' + currDay.getFullYear();\n        }\n    } else if (demodayinp == 'Day After') {\n        demodayinp = (currDay.getDate() + 2) + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n        if (currDay.getDate() + 2 > days((currDay.getMonth() + 1), currDay.getFullYear())){\n            demodayinp = (currDay.getDate() + 2 - days((currDay.getMonth() + 1), currDay.getFullYear())) + '-' + (currDay.getMonth() + 2) + '-' + currDay.getFullYear();\n        }\n    } else {\n        resolve();\n    }\n    \n    // app.executeApi('setDemo', {\n    //     \"demotimeinp\": demotimeinp,\n    //     \"demodayinp\": demodayinp,\n    //     \"sender\": app.sender ? app.sender : null\n    // }).then(response => {\n    //     app.log('response ???????????', response);\n    //     let time = JSON.parse(response).data.time;\n    //     app.log(JSON.parse(response), 'response from sendData API');\n    // }).catch(error => {\n    //     // app.log(error, 'error from sendData API');\n    //     resolve();\n    // })\n    \n\n    app.sendQuickReplies({\n        title: `Cool. Your meeting will be scheduled for ${demodayinp}, ${demotimeinp}. \\nIs it fine? \\n`,\n        options: [\n            {\n                text: \"Yes\",\n                title: yes,\n            },\n            {\n                title: no,\n                text: \"No\"\n            }\n        ]\n    })\n\n\n    resolve();\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc187a436fcbd5c",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc187a436fcbd5c",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "demoTimeValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1871f50fcbd60",
+			"code": "return new Promise(resolve => {\n    let dt = app.data.message;\n    app.log(\"coming in demotimevalidator\");\n    if (dt) {\n        dt = dt.toLowerCase().trim();\n    }\n   // let dt1 = app.context.steps[\"settime\"] ? app.context.steps[\"settime\"] : app.context.steps[\"demotime\"]\n    app.log('>>>>>>>>>>>>>>', dt);\n    // app.log(app.context.steps, \"steps\");\n    let twelve2two = /2|12-2|12|two|12pm-2pm/ig;\n    let nine2el = /9-11|one|9am-11am|9|1$/ig;\n    let three2five = /3-5|3|three|3pm-5pm/ig;\n    let six2eight = /6-8|4|four|6pm-8pm|6/ig;\n    let now = /now|5|five/ig;\n\nif (app.context.steps[\"settime\"]){\n    if (nine2el.test(dt)) {\n        app.setStep('settime', '9am-11am');\n        app.log(\"coming here 9\")\n        resolve();\n    }\n    else if (twelve2two.test(dt)) {\n        app.setStep('settime', '12pm-2pm');\n        app.log(app.context.steps, \"steps1\");\n\n        app.log(\"coming here 12\")\n        resolve();\n    }\n    else if (three2five.test(dt)) {\n        app.setStep('settime', '3pm-5pm');\n\n        resolve();\n    } else if (six2eight.test(dt)) {\n        app.setStep('settime', '6pm-8pm');\n\n        resolve();\n    } else if (now.test(dt)) {\n        app.setStep('settime', 'now');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"9am-11am\",\n                            text: \"9am-11am\"\n                        },\n                        {\n                            title: \"12pm-2pm\",\n                            text: \"12pm-2pm\"\n                        },\n                        {\n                            title: \"3pm-5pm\",\n                            text: \"3pm-5pm\"\n                        },\n                        {\n                            title: \"6pm-8pm\",\n                            text: \"6pm-8pm\"\n                        },\n                        {\n                            title: \"now\",\n                            text: \"Now\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n}else{\n    if (nine2el.test(dt)) {\n        app.setStep('demotime', '9am-11am');\n        app.setStep('settime', '9am-11am');\n\n        app.log(\"coming here 9\")\n        resolve();\n    }\n    else if (twelve2two.test(dt)) {\n        app.setStep('demotime', '12pm-2pm');\n        app.setStep('settime', '12pm-2pm');\n        app.log(app.context.steps, \"steps2\");\n\n        app.log(\"coming here 12\")\n        resolve();\n    }\n    else if (three2five.test(dt)) {\n        app.setStep('demotime', '3pm-5pm');\n        app.setStep('settime', '3pm-5pm');\n\n        resolve();\n    } else if (six2eight.test(dt)) {\n        app.setStep('demotime', '6pm-8pm');\n        app.setStep('settime', '6pm-8pm');\n\n        resolve();\n    } else if (now.test(dt)) {\n        app.setStep('demotime', 'now');\n        app.setStep('settime', 'now');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"9am-11am\",\n                            text: \"9am-11am\"\n                        },\n                        {\n                            title: \"12pm-2pm\",\n                            text: \"12pm-2pm\"\n                        },\n                        {\n                            title: \"3pm-5pm\",\n                            text: \"3pm-5pm\"\n                        },\n                        {\n                            title: \"6pm-8pm\",\n                            text: \"6pm-8pm\"\n                        },\n                        {\n                            title: \"now\",\n                            text: \"Now\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n}\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1871f50fcbd60",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc187aee6fcbd61",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "removeStopWords",
+			"type": "validators",
+			"stepId": "5f1593e99bc1878e8afcbd5e",
+			"code": "let stopWords = [\n    \"a\",\n    \"able\",\n    \"about\",\n    \"above\",\n    \"abst\",\n    \"accordance\",\n    \"according\",\n    \"accordingly\",\n    \"across\",\n    \"act\",\n    \"actually\",\n    \"added\",\n    \"adj\",\n    \"affected\",\n    \"affecting\",\n    \"affects\",\n    \"after\",\n    \"afterwards\",\n    \"again\",\n    \"against\",\n    \"ah\",\n    \"all\",\n    \"almost\",\n    \"alone\",\n    \"along\",\n    \"already\",\n    \"also\",\n    \"although\",\n    \"always\",\n    \"am\",\n    \"among\",\n    \"amongst\",\n    \"an\",\n    \"and\",\n    \"announce\",\n    \"another\",\n    \"any\",\n    \"anybody\",\n    \"anyhow\",\n    \"anymore\",\n    \"anyone\",\n    \"anything\",\n    \"anyway\",\n    \"anyways\",\n    \"anywhere\",\n    \"apparently\",\n    \"approximately\",\n    \"are\",\n    \"aren\",\n    \"arent\",\n    \"arise\",\n    \"around\",\n    \"as\",\n    \"aside\",\n    \"ask\",\n    \"asking\",\n    \"at\",\n    \"auth\",\n    \"available\",\n    \"away\",\n    \"awfully\",\n    \"b\",\n    \"back\",\n    \"be\",\n    \"became\",\n    \"because\",\n    \"become\",\n    \"becomes\",\n    \"becoming\",\n    \"been\",\n    \"before\",\n    \"beforehand\",\n    \"begin\",\n    \"beginning\",\n    \"beginnings\",\n    \"begins\",\n    \"behind\",\n    \"being\",\n    \"believe\",\n    \"below\",\n    \"beside\",\n    \"besides\",\n    \"between\",\n    \"beyond\",\n    \"biol\",\n    \"both\",\n    \"brief\",\n    \"briefly\",\n    \"but\",\n    \"by\",\n    \"c\",\n    \"ca\",\n    \"came\",\n    \"can\",\n    \"cannot\",\n    \"can't\",\n    \"cause\",\n    \"causes\",\n    \"certain\",\n    \"certainly\",\n    \"co\",\n    \"com\",\n    \"come\",\n    \"comes\",\n    \"contain\",\n    \"containing\",\n    \"contains\",\n    \"could\",\n    \"couldnt\",\n    \"d\",\n    \"date\",\n    \"did\",\n    \"didn't\",\n    \"different\",\n    \"do\",\n    \"does\",\n    \"doesn't\",\n    \"doing\",\n    \"done\",\n    \"don't\",\n    \"down\",\n    \"downwards\",\n    \"due\",\n    \"during\",\n    \"e\",\n    \"each\",\n    \"ed\",\n    \"edu\",\n    \"effect\",\n    \"eg\",\n    \"eight\",\n    \"eighty\",\n    \"either\",\n    \"else\",\n    \"elsewhere\",\n    \"end\",\n    \"ending\",\n    \"enough\",\n    \"especially\",\n    \"et\",\n    \"et-al\",\n    \"etc\",\n    \"even\",\n    \"ever\",\n    \"every\",\n    \"everybody\",\n    \"everyone\",\n    \"everything\",\n    \"everywhere\",\n    \"ex\",\n    \"except\",\n    \"f\",\n    \"far\",\n    \"few\",\n    \"ff\",\n    \"fifth\",\n    \"first\",\n    \"five\",\n    \"fix\",\n    \"followed\",\n    \"following\",\n    \"follows\",\n    \"for\",\n    \"former\",\n    \"formerly\",\n    \"forth\",\n    \"found\",\n    \"four\",\n    \"from\",\n    \"further\",\n    \"furthermore\",\n    \"g\",\n    \"gave\",\n    \"get\",\n    \"gets\",\n    \"getting\",\n    \"give\",\n    \"given\",\n    \"gives\",\n    \"giving\",\n    \"go\",\n    \"goes\",\n    \"gone\",\n    \"got\",\n    \"gotten\",\n    \"h\",\n    \"had\",\n    \"happens\",\n    \"hardly\",\n    \"has\",\n    \"hasn't\",\n    \"have\",\n    \"haven't\",\n    \"having\",\n    \"he\",\n    \"hed\",\n    \"hence\",\n    \"her\",\n    \"here\",\n    \"hereafter\",\n    \"hereby\",\n    \"herein\",\n    \"heres\",\n    \"hereupon\",\n    \"hers\",\n    \"herself\",\n    \"hes\",\n    \"hi\",\n    \"hid\",\n    \"him\",\n    \"himself\",\n    \"his\",\n    \"hither\",\n    \"home\",\n    \"how\",\n    \"howbeit\",\n    \"however\",\n    \"hundred\",\n    \"i\",\n    \"id\",\n    \"ie\",\n    \"if\",\n    \"i'll\",\n    \"im\",\n    \"immediate\",\n    \"immediately\",\n    \"importance\",\n    \"important\",\n    \"in\",\n    \"inc\",\n    \"indeed\",\n    \"index\",\n    \"information\",\n    \"instead\",\n    \"into\",\n    \"invention\",\n    \"inward\",\n    \"is\",\n    \"isn't\",\n    \"it\",\n    \"itd\",\n    \"it'll\",\n    \"its\",\n    \"itself\",\n    \"i've\",\n    \"j\",\n    \"just\",\n    \"k\",\n    \"keep\",\n    \"keeps\",\n    \"kept\",\n    \"kg\",\n    \"km\",\n    \"know\",\n    \"known\",\n    \"knows\",\n    \"l\",\n    \"largely\",\n    \"last\",\n    \"lately\",\n    \"later\",\n    \"latter\",\n    \"latterly\",\n    \"least\",\n    \"leave\",\n    \"leaves\",\n    \"less\",\n    \"lest\",\n    \"let\",\n    \"lets\",\n    \"like\",\n    \"liked\",\n    \"likely\",\n    \"line\",\n    \"little\",\n    \"'ll\",\n    \"look\",\n    \"looking\",\n    \"looks\",\n    \"ltd\",\n    \"m\",\n    \"made\",\n    \"mainly\",\n    \"make\",\n    \"makes\",\n    \"many\",\n    \"may\",\n    \"maybe\",\n    \"me\",\n    \"mean\",\n    \"means\",\n    \"meantime\",\n    \"meanwhile\",\n    \"merely\",\n    \"mg\",\n    \"might\",\n    \"million\",\n    \"miss\",\n    \"ml\",\n    \"more\",\n    \"moreover\",\n    \"most\",\n    \"mostly\",\n    \"mr\",\n    \"mrs\",\n    \"much\",\n    \"mug\",\n    \"must\",\n    \"my\",\n    \"myself\",\n    \"n\",\n    \"na\",\n    \"name\",\n    \"namely\",\n    \"nay\",\n    \"nd\",\n    \"near\",\n    \"nearly\",\n    \"necessarily\",\n    \"necessary\",\n    \"need\",\n    \"needs\",\n    \"neither\",\n    \"never\",\n    \"nevertheless\",\n    \"new\",\n    \"next\",\n    \"nine\",\n    \"ninety\",\n    \"no\",\n    \"nobody\",\n    \"non\",\n    \"none\",\n    \"nonetheless\",\n    \"noone\",\n    \"nor\",\n    \"normally\",\n    \"nos\",\n    \"not\",\n    \"noted\",\n    \"nothing\",\n    \"now\",\n    \"nowhere\",\n    \"o\",\n    \"obtain\",\n    \"obtained\",\n    \"obviously\",\n    \"of\",\n    \"off\",\n    \"often\",\n    \"oh\",\n    \"ok\",\n    \"okay\",\n    \"old\",\n    \"omitted\",\n    \"on\",\n    \"once\",\n    \"one\",\n    \"ones\",\n    \"only\",\n    \"onto\",\n    \"or\",\n    \"ord\",\n    \"other\",\n    \"others\",\n    \"otherwise\",\n    \"ought\",\n    \"our\",\n    \"ours\",\n    \"ourselves\",\n    \"out\",\n    \"outside\",\n    \"over\",\n    \"overall\",\n    \"owing\",\n    \"own\",\n    \"p\",\n    \"page\",\n    \"pages\",\n    \"part\",\n    \"particular\",\n    \"particularly\",\n    \"past\",\n    \"per\",\n    \"perhaps\",\n    \"placed\",\n    \"please\",\n    \"plus\",\n    \"poorly\",\n    \"possible\",\n    \"possibly\",\n    \"potentially\",\n    \"pp\",\n    \"predominantly\",\n    \"present\",\n    \"previously\",\n    \"primarily\",\n    \"probably\",\n    \"promptly\",\n    \"proud\",\n    \"provides\",\n    \"put\",\n    \"q\",\n    \"que\",\n    \"quickly\",\n    \"quite\",\n    \"qv\",\n    \"r\",\n    \"ran\",\n    \"rather\",\n    \"rd\",\n    \"re\",\n    \"readily\",\n    \"really\",\n    \"recent\",\n    \"recently\",\n    \"ref\",\n    \"refs\",\n    \"regarding\",\n    \"regardless\",\n    \"regards\",\n    \"related\",\n    \"relatively\",\n    \"research\",\n    \"respectively\",\n    \"resulted\",\n    \"resulting\",\n    \"results\",\n    \"right\",\n    \"run\",\n    \"s\",\n    \"said\",\n    \"same\",\n    \"saw\",\n    \"say\",\n    \"saying\",\n    \"says\",\n    \"sec\",\n    \"section\",\n    \"see\",\n    \"seeing\",\n    \"seem\",\n    \"seemed\",\n    \"seeming\",\n    \"seems\",\n    \"seen\",\n    \"self\",\n    \"selves\",\n    \"sent\",\n    \"seven\",\n    \"several\",\n    \"shall\",\n    \"she\",\n    \"shed\",\n    \"she'll\",\n    \"shes\",\n    \"should\",\n    \"shouldn't\",\n    \"show\",\n    \"showed\",\n    \"shown\",\n    \"showns\",\n    \"shows\",\n    \"significant\",\n    \"significantly\",\n    \"similar\",\n    \"similarly\",\n    \"since\",\n    \"six\",\n    \"slightly\",\n    \"so\",\n    \"some\",\n    \"somebody\",\n    \"somehow\",\n    \"someone\",\n    \"somethan\",\n    \"something\",\n    \"sometime\",\n    \"sometimes\",\n    \"somewhat\",\n    \"somewhere\",\n    \"soon\",\n    \"sorry\",\n    \"specifically\",\n    \"specified\",\n    \"specify\",\n    \"specifying\",\n    \"still\",\n    \"stop\",\n    \"strongly\",\n    \"sub\",\n    \"substantially\",\n    \"successfully\",\n    \"such\",\n    \"sufficiently\",\n    \"suggest\",\n    \"sup\",\n    \"sure\",\n    \"t\",\n    \"take\",\n    \"taken\",\n    \"taking\",\n    \"tell\",\n    \"tends\",\n    \"th\",\n    \"than\",\n    \"thank\",\n    \"thanks\",\n    \"thanx\",\n    \"that\",\n    \"that'll\",\n    \"thats\",\n    \"that've\",\n    \"the\",\n    \"their\",\n    \"theirs\",\n    \"them\",\n    \"themselves\",\n    \"then\",\n    \"thence\",\n    \"there\",\n    \"thereafter\",\n    \"thereby\",\n    \"thered\",\n    \"therefore\",\n    \"therein\",\n    \"there'll\",\n    \"thereof\",\n    \"therere\",\n    \"theres\",\n    \"thereto\",\n    \"thereupon\",\n    \"there've\",\n    \"these\",\n    \"they\",\n    \"theyd\",\n    \"they'll\",\n    \"theyre\",\n    \"they've\",\n    \"think\",\n    \"this\",\n    \"those\",\n    \"thou\",\n    \"though\",\n    \"thoughh\",\n    \"thousand\",\n    \"three\",\n    \"throug\",\n    \"through\",\n    \"throughout\",\n    \"thru\",\n    \"thus\",\n    \"til\",\n    \"tip\",\n    \"to\",\n    \"together\",\n    \"too\",\n    \"took\",\n    \"toward\",\n    \"towards\",\n    \"tried\",\n    \"tries\",\n    \"truly\",\n    \"try\",\n    \"trying\",\n    \"ts\",\n    \"twice\",\n    \"two\",\n    \"u\",\n    \"un\",\n    \"under\",\n    \"unfortunately\",\n    \"unless\",\n    \"unlike\",\n    \"unlikely\",\n    \"until\",\n    \"unto\",\n    \"up\",\n    \"upon\",\n    \"ups\",\n    \"us\",\n    \"use\",\n    \"used\",\n    \"useful\",\n    \"usefully\",\n    \"usefulness\",\n    \"uses\",\n    \"using\",\n    \"usually\",\n    \"v\",\n    \"value\",\n    \"various\",\n    \"'ve\",\n    \"very\",\n    \"via\",\n    \"viz\",\n    \"vol\",\n    \"vols\",\n    \"vs\",\n    \"w\",\n    \"want\",\n    \"wants\",\n    \"was\",\n    \"wasnt\",\n    \"way\",\n    \"we\",\n    \"wed\",\n    \"welcome\",\n    \"we'll\",\n    \"went\",\n    \"were\",\n    \"werent\",\n    \"we've\",\n    \"what\",\n    \"whatever\",\n    \"what'll\",\n    \"whats\",\n    \"when\",\n    \"whence\",\n    \"whenever\",\n    \"where\",\n    \"whereafter\",\n    \"whereas\",\n    \"whereby\",\n    \"wherein\",\n    \"wheres\",\n    \"whereupon\",\n    \"wherever\",\n    \"whether\",\n    \"which\",\n    \"while\",\n    \"whim\",\n    \"whither\",\n    \"who\",\n    \"whod\",\n    \"whoever\",\n    \"whole\",\n    \"who'll\",\n    \"whom\",\n    \"whomever\",\n    \"whos\",\n    \"whose\",\n    \"why\",\n    \"widely\",\n    \"willing\",\n    \"wish\",\n    \"with\",\n    \"within\",\n    \"without\",\n    \"wont\",\n    \"words\",\n    \"world\",\n    \"would\",\n    \"wouldnt\",\n    \"www\",\n    \"x\",\n    \"y\",\n    \"yes\",\n    \"yet\",\n    \"you\",\n    \"youd\",\n    \"you'll\",\n    \"your\",\n    \"youre\",\n    \"yours\",\n    \"yourself\",\n    \"yourselves\",\n    \"you've\",\n    \"z\",\n    \"zero\"\n];\n\n\n\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    let messageWords = message.split(\"-\").join(\" \").split(\" \");\n\n    let messageFiltered = [];\n    messageWords.forEach(word => {\n        if (stopWords.indexOf(word) === -1 && isNaN(word)) {\n            messageFiltered.push(word);\n        }\n    });\n    messageFiltered = messageFiltered.join(' ');\n\n    app.setStep(stepName, messageFiltered);\n    resolve();\n});\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1878e8afcbd5e",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "fixDemoDateValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1878ee0fcbd5f",
+			"code": "return new Promise(resolve => {\n    let demoDate = app.data.message;\n    app.setStep('settime', undefined);\n    app.log(\"coming in fixdemovalidator\")\n    if (demoDate) {\n        demoDate = demoDate.toLowerCase().trim();\n    }\n    let demodayinp;\n    let currDay = new Date();\n    let currTime = currDay.getHours();\n    let today = /today|1|one/ig;\n    let tom = /tom|tomorrow|2|two/ig;\n    let dayafter = /day after|3|three/ig;\n    //let other = /other option|i need some other option|need some other option|4|four/ig;\n    /*\n    if (demoDate == 'today') {\n        demodayinp = currDay.getDate() + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n    } else if (demoDate == 'tomorrow') {\n        demodayinp = (currDay.getDate() + 1) + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n    } else {\n        demodayinp = (currDay.getDate() + 2) + '-' + (currDay.getMonth() + 1) + '-' + currDay.getFullYear();\n    }\n    */\n    if (today.test(demoDate)) {\n        app.log(\"coming here in today\");\n        app.setStep('fixdemodate', \"Today\");\n        \n        resolve();\n    }\n    else if (tom.test(demoDate)) {\n        app.setStep('fixdemodate', \"Tomorrow\");\n\n        resolve();\n    }\n    else if (dayafter.test(demoDate)) {\n        app.setStep('fixdemodate', \"Day After\");\n\n        resolve();\n\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Today\",\n                            text: \"Today\"\n                        },\n                        {\n                            title: \"Tomorrow\",\n                            text: \"Tomorrow\"\n                        },\n                        {\n                            title: \"Day After\",\n                            text: \"Day After\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1878ee0fcbd5f",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "subscribersCountValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1871ef9fcbd65",
+			"code": "return new Promise(resolve => {\n    let count = app.data.message;\n\n    if (count) {\n        count = count.toLowerCase().trim();\n    }\n\n    let lessthan1000 = /0-1000|1|one/ig;\n    let lessthan5000 = /1001-5000|2|two/ig;\n    let lessthan25000 = /5001-25000|3|three/ig;\n    let morethan25000 = /More than 25000|4|four/ig;\n\n    if (lessthan1000.test(count)) {\n        app.setStep('subscriberscount', '0-1000');\n        \n        resolve();\n    }\n    else if (lessthan5000.test(count)) {\n        app.setStep('subscriberscount', '1001-5000');\n\n        resolve();\n    }\n    else if (lessthan25000.test(count)) {\n        app.setStep('subscriberscount', '5001-25000');\n\n        resolve();\n    } else if (morethan25000.test(count)) {\n        app.setStep('subscriberscount', 'More than 25000');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"0-1000\",\n                            text: \"0-1000\"\n                        },\n                        {\n                            title: \"1001-5000\",\n                            text: \"1001-5000\"\n                        },\n                        {\n                            title: \"5001-25000\",\n                            text: \"5001-25000\"\n                        },\n                        {\n                            title: \"More than 25000\",\n                            text: \"More than 25000\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1871ef9fcbd65",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "demoSetPrompt",
+			"type": "prompt",
+			"stepId": "5f1593e99bc1870fc0fcbd5d",
+			"code": "return new Promise(resolve => {\n    // Your logic goes here\n\n    if (app.source == 'whatsapp'){\n    app.sendTextMessage(`Super! You will get the meeting confirmation and BDM name shortly.\nIn the meanwhile, do you want to know more about Classplus? 🙂🙂\n*1.* Yes\n*2.* No`);\n\n    app.executeApi('setDemo', {\n        //\"demotimeinp\": demotimeinp,\n        //\"demodayinp\": demodayinp,\n        \"sender\": app.sender ? app.sender : null\n    }).then(response => {\n        app.log('response ???????????', response);\n        let time = JSON.parse(response).data.time;\n        app.log(JSON.parse(response), 'response from sendData API');\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n\n}\nelse {    app.sendQuickReplies({\n        title: `Super! You will get the meeting confirmation and BDM name shortly.\nIn the meanwhile, do you want to know more about Classplus? 🙂🙂\\n`,\n        options: [\n            {\n                text: \"Yes\",\n                title: \"Yes\",\n            },\n            {\n                title: \"No\",\n                text: \"No\"\n            }\n        ]\n    })\n}\n    resolve();\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870fc0fcbd5d",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc1870fc0fcbd5d",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "infoRequestPrompt",
+			"type": "prompt",
+			"stepId": "5f1593e99bc1872196fcbd59",
+			"code": "//const restartTheBot = () => {\n    // app.data.message = \"ok\";\n    // return app.start(app.botOptions);\n//}\n\nconst customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\nreturn new Promise(async resolve => {\n    let classplusInfoChoice = app.context.steps[\"repeatinfo\"] ? app.context.steps[\"repeatinfo\"] : app.context.steps[\"classplusinfo\"];\n\n    let video = /Tell me more about Classplus.|1|one/ig;\n    let image = /Do teachers love Classplus?|2|two/ig;\n    let link = /How will Classplus help me grow my coaching institute?|3|three/ig;\n\n    // app.setStep('inforeq', \"done\");\n    if (video.test(classplusInfoChoice)) {\n        app.log(\"coming in video\");\n        if (app.source == \"whatsapp\") {\n            await app.sendVideo(\n                \"https://cp-assets-public.s3.ap-south-1.amazonaws.com/cams/market/what3.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"Because *we care for teachers* with ❤️\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cp-assets-public.s3.ap-south-1.amazonaws.com/cams/market/what3.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        await customSleep(5000);\n        await app.sendTextMessage(`Type \"Ok\" to continue.`);\n        resolve();\n        //restartTheBot();\n\n\n    } else if (image.test(classplusInfoChoice)) {\n        app.log(\"coming in image\");\n\n        if (app.source == \"whatsapp\") {\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/0001/WhatsApp+Video+2020-07-21+at+19.45.38+(2).mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"One of our *many happy customers*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://clevertapimages.s3.ap-south-1.amazonaws.com/0001/WhatsApp+Video+2020-07-21+at+19.45.38+(2).mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        await customSleep(5000);\n        await app.sendTextMessage(`Type \"Ok\" to continue.`);\n        resolve();\n\n    } else if (link.test(classplusInfoChoice)) {\n        if (app.source == \"whatsapp\") {\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/0001/WhatsApp+Video+2020-07-21+at+19.45.38.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"*Helping teachers 24x7* during the lockdown\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://clevertapimages.s3.ap-south-1.amazonaws.com/0001/WhatsApp+Video+2020-07-21+at+19.45.38.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        await customSleep(5000);\n        await app.sendTextMessage(`Type \"Ok\" to continue.`);\n        resolve();\n        //restartTheBot();\n\n    } else {\n        resolve();\n        //restartTheBot();\n    }\n\n});"
+		},
+		{
+			"name": "repeatInfoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc1879c5bfcbd5a",
+			"code": "return new Promise(async resolve => {\n    let info = app.data.message;\n\n    if (info) {\n        info = info.toLowerCase().trim();\n    }\n\n    let video = /Tell me more about Classplus.|more about Classplus|about Classplus|Classplus|watch video|watch demo video|1|one/ig;\n    let image = /Do teachers love Classplus?|teachers love Classplus?|users classplus|Who all are using Classplus|2|two/ig;\n    let link = /How will Classplus help me grow my coaching institute?|How will Classplus help me grow my coaching institute|How will Classplus help me grow my coaching|grow my institute|3|three/ig;\n    //let demo = /Schedule a Demo|demo|4|four/ig;\n    let exit = /exit|4|four/ig;\n\n\n    if (video.test(info)) {\n        await app.setStep('repeatinfo', 'Tell me more about Classplus.');\n        resolve();\n    }\n    else if (image.test(info)) {\n        await app.setStep('repeatinfo', 'Do teachers love Classplus?');\n        resolve();\n    }\n    else if (link.test(info)) {\n        await app.setStep('repeatinfo', 'How will Classplus help me grow my coaching institute?');\n        resolve();\n    } else if (exit.test(info)) {\n        await app.setStep('repeatinfo', 'Exit');\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Tell me more about Classplus.\",\n                            text: \"Tell me more about Classplus.\"\n                        },\n                        {\n                            title: \"Do teachers love Classplus?\",\n                            text: \"Do teachers love Classplus?\"\n                        },\n                        {\n                            title: \"How will Classplus help me grow my coaching institute?\",\n                            text: \"How will Classplus help me grow my coaching institute?\"\n                        },\n                        {\n                            title: \"Exit\",\n                            text: \"Exit\"\n                        }\n                    ]\n                });\n            }\n        });\n    }\n\n});"
+		},
+		{
+			"name": "demoTimeValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc187af7ffcbd5b",
+			"code": "return new Promise(resolve => {\n    let dt = app.data.message;\n    app.log(\"coming in demotimevalidator\");\n    if (dt) {\n        dt = dt.toLowerCase().trim();\n    }\n   // let dt1 = app.context.steps[\"settime\"] ? app.context.steps[\"settime\"] : app.context.steps[\"demotime\"]\n    app.log('>>>>>>>>>>>>>>', dt);\n    // app.log(app.context.steps, \"steps\");\n    let twelve2two = /2|12-2|12|two|12pm-2pm/ig;\n    let nine2el = /9-11|one|9am-11am|9|1$/ig;\n    let three2five = /3-5|3|three|3pm-5pm/ig;\n    let six2eight = /6-8|4|four|6pm-8pm|6/ig;\n    let now = /now|5|five/ig;\n\nif (app.context.steps[\"settime\"]){\n    if (nine2el.test(dt)) {\n        app.setStep('settime', '9am-11am');\n        app.log(\"coming here 9\")\n        resolve();\n    }\n    else if (twelve2two.test(dt)) {\n        app.setStep('settime', '12pm-2pm');\n        app.log(app.context.steps, \"steps1\");\n\n        app.log(\"coming here 12\")\n        resolve();\n    }\n    else if (three2five.test(dt)) {\n        app.setStep('settime', '3pm-5pm');\n\n        resolve();\n    } else if (six2eight.test(dt)) {\n        app.setStep('settime', '6pm-8pm');\n\n        resolve();\n    } else if (now.test(dt)) {\n        app.setStep('settime', 'now');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"9am-11am\",\n                            text: \"9am-11am\"\n                        },\n                        {\n                            title: \"12pm-2pm\",\n                            text: \"12pm-2pm\"\n                        },\n                        {\n                            title: \"3pm-5pm\",\n                            text: \"3pm-5pm\"\n                        },\n                        {\n                            title: \"6pm-8pm\",\n                            text: \"6pm-8pm\"\n                        },\n                        {\n                            title: \"now\",\n                            text: \"Now\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n}else{\n    if (nine2el.test(dt)) {\n        app.setStep('demotime', '9am-11am');\n        app.setStep('settime', '9am-11am');\n\n        app.log(\"coming here 9\")\n        resolve();\n    }\n    else if (twelve2two.test(dt)) {\n        app.setStep('demotime', '12pm-2pm');\n        app.setStep('settime', '12pm-2pm');\n        app.log(app.context.steps, \"steps2\");\n\n        app.log(\"coming here 12\")\n        resolve();\n    }\n    else if (three2five.test(dt)) {\n        app.setStep('demotime', '3pm-5pm');\n        app.setStep('settime', '3pm-5pm');\n\n        resolve();\n    } else if (six2eight.test(dt)) {\n        app.setStep('demotime', '6pm-8pm');\n        app.setStep('settime', '6pm-8pm');\n\n        resolve();\n    } else if (now.test(dt)) {\n        app.setStep('demotime', 'now');\n        app.setStep('settime', 'now');\n\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"9am-11am\",\n                            text: \"9am-11am\"\n                        },\n                        {\n                            title: \"12pm-2pm\",\n                            text: \"12pm-2pm\"\n                        },\n                        {\n                            title: \"3pm-5pm\",\n                            text: \"3pm-5pm\"\n                        },\n                        {\n                            title: \"6pm-8pm\",\n                            text: \"6pm-8pm\"\n                        },\n                        {\n                            title: \"now\",\n                            text: \"Now\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n}\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc187af7ffcbd5b",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "noOfStudentsValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc18705acfcbd63",
+			"code": "return new Promise(resolve => {\n    let studentnumber = app.data.message;\n\n    if (studentnumber) {\n        studentnumber = studentnumber.toLowerCase().trim();\n    }\n\n    let lessthan10 = /1-10|1|one/ig;\n    let lessthan50 = /11-50|2|two/ig;\n    let lessthan100 = /51-100|3|three/ig;\n    let lessthan500 = /101-500|4|four/ig;\n    let morethan500 = /More than 500|5|five/ig;\n\n\n    if (lessthan10.test(studentnumber)) {\n        app.setStep('noofstudents', '1-10');\n        \n        app.setStep('studentsnum', '1-10');\n        resolve();\n    }\n    else if (lessthan50.test(studentnumber)) {\n        app.setStep('noofstudents', '11-50');\n        app.setStep('studentsnum', '11-50');\n        resolve();\n    }\n    else if (lessthan100.test(studentnumber)) {\n        app.setStep('noofstudents', '51-100');\n        app.setStep('studentsnum', '51-100');\n        resolve();\n    } else if (lessthan500.test(studentnumber)) {\n        app.setStep('noofstudents', '101-500');\n        app.setStep('studentsnum', '101-500');\n        resolve();\n    }else if (morethan500.test(studentnumber)) {\n        app.setStep('noofstudents', 'More than 500');\n        app.setStep('studentsnum', 'More than 500');\n        resolve();\n    } else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"1-10\",\n                            text: \"1-10\"\n                        },\n                        {\n                            title: \"11-50\",\n                            text: \"11-50\"\n                        },\n                        {\n                            title: \"51-100\",\n                            text: \"51-100\"\n                        },\n                        {\n                            title: \"101-500\",\n                            text: \"101-500\"\n                        },\n                        {\n                            title: \"More than 500\",\n                            text: \"More than 500\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18705acfcbd63",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1593e99bc18753f6fcbd64",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "sendDemoDataToAPI",
+			"type": "validators",
+			"stepId": "5f1593e99bc18753f6fcbd64",
+			"code": "return new Promise(resolve => {\n    let sender = app.sender ? app.sender : \"\";\n    let stepName = app.context[\"paramExpected\"];\n    app.log('context>>>>>>>>>>>>>>>', app.context);\n    app.log(stepName, 'stepName');\n    app.log(sender, 'sender');\n    let stepValue = app.context.steps[stepName] ? app.context.steps[stepName] : app.data.message;\n\n    app.log(stepValue, \"stepValue\");\n    app.executeApi('sendDemoData', {\n        \"sender\": sender,\n        \"stepName\": stepName,\n        \"stepValue\": stepValue\n    }).then(response => {\n        // app.log(response, 'response from sendData API');\n        resolve();\n    }).catch(error => {\n        // app.log(error, 'error from sendData API');\n        resolve();\n    })\n});"
+		},
+		{
+			"name": "endVideo",
+			"type": "prompt",
+			"stepId": "5f229c108814f67d85f68c5c",
+			"code": "\n\nreturn new Promise(async resolve => {\n    let findreasonstep = app.context.steps[\"endvideo\"];\n\n        if (app.source == \"whatsapp\") {\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/001/WhatsApp+Video+2020-07-30+at+14.18.11.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"demo video\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://clevertapimages.s3.ap-south-1.amazonaws.com/001/WhatsApp+Video+2020-07-30+at+14.18.11.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        resolve();\n\n\n});"
+		}
+	]
+}

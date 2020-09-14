@@ -1,0 +1,593 @@
+{
+	"journey": {
+		"steps": [
+			{
+				"id": "5f1d90132246d918460ef722",
+				"slug": "checklist"
+			},
+			{
+				"id": "5f1d90142246d96fbd0ef723",
+				"slug": "bdmdetails"
+			},
+			{
+				"id": "5f1d90142246d947690ef724",
+				"slug": "captureinterest"
+			},
+			{
+				"id": "5f1d90142246d915380ef725",
+				"slug": "showvideo"
+			},
+			{
+				"id": "5f1d90142246d9a1d70ef726",
+				"slug": "basicinfo"
+			},
+			{
+				"id": "5f1d90142246d9fbd70ef727",
+				"slug": "mediaarticles"
+			},
+			{
+				"id": "5f1d90142246d924a30ef728",
+				"slug": "brandvideo"
+			},
+			{
+				"id": "5f1d90142246d968ff0ef729",
+				"slug": "moreclassplus"
+			},
+			{
+				"id": "5f1d90142246d90e940ef72a",
+				"slug": "productchoice"
+			}
+		],
+		"deleted": false,
+		"defaultJourney": false,
+		"actions": {
+			"response": [
+				{
+					"type": "func",
+					"id": 1,
+					"func": "maResponsePrompt"
+				}
+			]
+		},
+		"stepConditions": [],
+		"saveJourneyResponses": false,
+		"name": "MA Bot",
+		"description": "Meeting assigned",
+		"categoryType": "Default Category",
+		"survey": false,
+		"slug": "ma-bot",
+		"__v": 10,
+		"conditionalNodes": {
+			"productchoice": {
+				"name": "productChoice condition",
+				"step": "productchoice",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Yes",
+						"next": "moreclassplus",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "__action__response"
+				}
+			},
+			"mediaarticles": {
+				"name": "mediaArticles condition",
+				"step": "mediaarticles",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Yes",
+						"next": "basicinfo",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "__action__response"
+				}
+			},
+			"basicinfo": {
+				"name": "basicInfo condition",
+				"step": "basicinfo",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Classplus Brand",
+						"next": "brandvideo",
+						"type": "step",
+						"ignoreCase": true
+					},
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Classplus Media Articles",
+						"next": "mediaarticles",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "moreclassplus"
+				}
+			},
+			"brandvideo": {
+				"name": "brandVideo condition",
+				"step": "brandvideo",
+				"rules": [
+					{
+						"expressionLabel": " equal to ",
+						"expression": "=",
+						"expressionTest": "Yes",
+						"next": "basicinfo",
+						"type": "step",
+						"ignoreCase": true
+					}
+				],
+				"defaultRule": {
+					"next": "__action__response"
+				}
+			}
+		},
+		"nodePositions": {
+			"__condition__captureinterest": {
+				"x": 367,
+				"y": 219
+			},
+			"__condition__moreclassplus": {
+				"x": 68,
+				"y": 461
+			},
+			"moreclassplus": {
+				"x": 176,
+				"y": 444
+			},
+			"captureinterest": {
+				"x": 167,
+				"y": 282
+			},
+			"cont1": {
+				"x": 193,
+				"y": 249
+			},
+			"checklist": {
+				"x": 183,
+				"y": 206
+			},
+			"brandvideo": {
+				"x": 726,
+				"y": 427
+			},
+			"__action__response": {
+				"x": 539,
+				"y": 618
+			},
+			"classpluschoice": {
+				"x": 539,
+				"y": 406
+			},
+			"interestchoice": {
+				"x": 518,
+				"y": 259
+			},
+			"productchoice": {
+				"x": 190,
+				"y": 538
+			},
+			"__condition__productchoice": {
+				"x": 327,
+				"y": 499
+			},
+			"productvideo": {
+				"x": 712,
+				"y": 620
+			},
+			"morechoice": {
+				"x": 707,
+				"y": 524
+			},
+			"goback": {
+				"x": 178,
+				"y": 669
+			},
+			"__trigger__": {
+				"x": 215,
+				"y": 50
+			},
+			"showvideo": {
+				"x": 249,
+				"y": 365
+			},
+			"__condition__showvideo": {
+				"x": 376,
+				"y": 307
+			},
+			"mediaarticles": {
+				"x": 609,
+				"y": 184
+			},
+			"__condition__mediaarticles": {
+				"x": 738,
+				"y": 136
+			},
+			"basicinfo": {
+				"x": 430,
+				"y": 271
+			},
+			"__condition__basicinfo": {
+				"x": 539,
+				"y": 360
+			},
+			"__condition__brandvideo": {
+				"x": 867,
+				"y": 379
+			},
+			"bdmdetails": {
+				"x": 33,
+				"y": 111
+			}
+		},
+		"start": "checklist"
+	},
+	"stepsMap": {
+		"5f1d90132246d918460ef722": {
+			"deleted": false,
+			"slug": "checklist",
+			"defaultStep": false,
+			"name": "checklist",
+			"__v": 0,
+			"next": "captureinterest",
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"With pleasure 🙂. I will give you a short checklist for the meeting.\n\n✅ Keep 1 or preferably 2 mobiles with internet with you.\n✅ Be free for 30-45 mins to understand completely.\n✅ If there are other decision makers like your partner/faculty ask them to be with you at the time of demo.\n\nType *'Ok'* to continue"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "regex",
+					"id": 0,
+					"regexType": "Custom",
+					"regex": "ok",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": "Type *Ok* to continue."
+				}
+			]
+		},
+		"5f1d90142246d96fbd0ef723": {
+			"deleted": false,
+			"slug": "bdmdetails",
+			"defaultStep": false,
+			"name": "bdmDetails",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "getBDMDetailsMABot"
+				}
+			],
+			"validators": [
+				{
+					"type": "regex",
+					"id": 0,
+					"regexType": "Custom",
+					"regex": "know about meeting",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": "Type *know about meeting* to continue"
+				}
+			],
+			"next": "checklist"
+		},
+		"5f1d90142246d947690ef724": {
+			"deleted": false,
+			"slug": "captureinterest",
+			"defaultStep": false,
+			"name": "captureInterest",
+			"__v": 24,
+			"prompts": [
+				{
+					"type": "quickReplies",
+					"id": 2,
+					"quickReplies": {
+						"title": [
+							"I hope the checklist is clear. 🙂\n\nTo help you make the most of your time, let us know what interests you the most. We'll ask the salesperson to specially emphasize on that."
+						],
+						"options": [
+							{
+								"title": "Live Classes",
+								"text": "Live Classes"
+							},
+							{
+								"title": "Basic Management",
+								"text": "Basic Management"
+							},
+							{
+								"title": "Online Selling",
+								"text": "Online Selling"
+							},
+							{
+								"title": "Marketing",
+								"text": "Marketing"
+							},
+							{
+								"title": "None of these",
+								"text": "None of these"
+							}
+						]
+					},
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"yellowmessenger"
+							]
+						}
+					]
+				},
+				{
+					"type": "func",
+					"id": 1,
+					"filters": [
+						{
+							"type": "channels",
+							"channels": [
+								"whatsapp"
+							]
+						}
+					],
+					"func": "captureInterestPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "captureInterestValidator"
+				}
+			],
+			"next": "showvideo"
+		},
+		"5f1d90142246d915380ef725": {
+			"deleted": false,
+			"slug": "showvideo",
+			"defaultStep": false,
+			"name": "showVideo",
+			"__v": 3,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "showVideoMABot"
+				}
+			],
+			"validators": [
+				{
+					"type": "regex",
+					"id": 0,
+					"regexType": "Custom",
+					"regex": "ok",
+					"flag": [
+						"g",
+						"i",
+						"m"
+					],
+					"fallBackMessage": "Type *Ok* to continue."
+				}
+			],
+			"next": "basicinfo"
+		},
+		"5f1d90142246d9a1d70ef726": {
+			"deleted": false,
+			"slug": "basicinfo",
+			"defaultStep": false,
+			"name": "basicInfo",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"I hope you liked us. 🙏🏼\n\nDo you want to know about:\n\n*1.* Classplus Brand\n*2.* Classplus Media Articles\n*3.* Product\n\n💡 _Tip: You can type 1, 2, 3 to make a selection of the menu options_"
+					],
+					"filters": []
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "basicInfoValidator"
+				}
+			]
+		},
+		"5f1d90142246d9fbd70ef727": {
+			"deleted": false,
+			"slug": "mediaarticles",
+			"defaultStep": false,
+			"name": "mediaArticles",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "mediaArticlesPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			]
+		},
+		"5f1d90142246d924a30ef728": {
+			"deleted": false,
+			"slug": "brandvideo",
+			"defaultStep": false,
+			"name": "brandVideo",
+			"__v": 0,
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "brandVideoPrompt"
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			]
+		},
+		"5f1d90142246d968ff0ef729": {
+			"deleted": false,
+			"slug": "moreclassplus",
+			"defaultStep": false,
+			"name": "moreClassplus",
+			"__v": 26,
+			"prompts": [
+				{
+					"type": "text",
+					"id": 0,
+					"messages": [
+						"Great!🙂 Just type which topic interests you the most.\n\n*1.* Assignments and Tests\n*2.* Go Live\n*3.* Fees Management\n*4.* Create & Sell courses\n*5.* Do Free Marketing\n\n💡 _Tip: You can type 1, 2, 3, 4, 5 to make a selection of the menu options_"
+					]
+				}
+			],
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "moreClassplusValidator"
+				}
+			],
+			"next": "productchoice"
+		},
+		"5f1d90142246d90e940ef72a": {
+			"deleted": false,
+			"slug": "productchoice",
+			"defaultStep": false,
+			"name": "productChoice",
+			"__v": 0,
+			"validators": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "genericYesNoValidator"
+				}
+			],
+			"prompts": [
+				{
+					"type": "func",
+					"id": 0,
+					"func": "productChoicePrompt"
+				}
+			]
+		}
+	},
+	"training": [
+		{
+			"noun_chunks": [],
+			"text": "know about meeting",
+			"keywords": [],
+			"intent": "ma-bot",
+			"deleted": false,
+			"__v": 0
+		}
+	],
+	"functions": [
+		{
+			"name": "getBDMDetailsMABot",
+			"type": "prompt",
+			"stepId": "5f1d90142246d96fbd0ef723",
+			"code": "return new Promise(async (resolve, reject) => {\n    // Your logic goes here\n    try {\n        let res = await app.executeApi('getBDM', { sender: app.sender ? app.sender : null });\n        let body = JSON.parse(res.body);\n        let bdmName = null, bdmNumber = null;\n        let responseMessage = '';\n        if (body.data.bdm && body.data.bdm.length) {\n            bdmName = body.data.bdm[0].Name;\n            bdmNumber = body.data.bdm[0].Phone_Number;\n        }\n        if (bdmName && bdmNumber) {\n            if (app.source === 'whatsapp') {\n                responseMessage = `Template message with BDM Details:\nName: ${bdmName}\nNumber: ${bdmNumber}\nReply with 'Know About Meeting'.`\n                app.sendTextMessage(responseMessage);\n            }\n            else {\n                await app.sendTextMessage(`Template message with BDM Details:\nName: ${ bdmName }\nNumber: ${ bdmNumber }`);\n                await app.sendQuickReplies({\n                    title: '',\n                    options: [\n                        {\n                            title: 'Know About Meeting',\n                            text: 'know about meeting'\n                        }\n                    ]\n                })\n            }\n        }\n    }\n    catch(err) {\n        app.log(`Error fetching records from getBDM API: ${err}`);\n    }\n    resolve();\n});"
+		},
+		{
+			"name": "captureInterestPrompt",
+			"type": "prompt",
+			"stepId": "5f1d90142246d947690ef724",
+			"code": "\nconst customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\n\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n    await app.sendTextMessage(`I hope the checklist is clear. 🙂`);\n    await customSleep(2000);\n  //  if (app.source == 'whatsapp'){\n        await app.sendTextMessage(`To help you make the most of your time, let us know what interests you the most. We'll ask the salesperson to specially emphasise on that.\n\n*1.* Live Classes\n*2.* Basic Management\n*3.* Online Selling\n*4.* Marketing\n*5.* None of these\n\n💡 _Tip: You can type 1, 2, 3, 4, 5 to make a selection of the menu options_`);\n  //  }\n\n    resolve();\n});"
+		},
+		{
+			"name": "captureInterestValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d947690ef724",
+			"code": "return new Promise(resolve => {\n    let info = app.data.message;\n\n    if (info) {\n        info = info.toLowerCase().trim();\n    }\n\n    let video = /Live Classes|1|one/ig;\n    let image = /Assignments and Tests|2|two|Assignment|Test|Assignments|Tests/ig;\n    let link = /Online Selling|3|three/ig;\n    let demo = /Marketing|4|four/ig;\n    let none = /None of these|none|5|five/ig;\n    if (video.test(info)) {\n        app.setStep('captureinterest', 'Live Classes');\n\n        resolve();\n    }\n    else if (image.test(info)) {\n        app.setStep('captureinterest', 'Assignments and Tests');\n\n        resolve();\n    }\n    else if (link.test(info)) {\n        app.setStep('captureinterest', 'Online Selling');\n\n        resolve();\n    } else if (demo.test(info)) {\n        app.setStep('captureinterest', 'Marketing');\n\n        resolve();\n    } else if (none.test(info)) {\n        app.setStep('captureinterest', 'None of these');\n\n        resolve();\n    }else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Live Classes\",\n                            text: \"Live Classes\"\n                        },\n                        {\n                            title: \"Basic Management\",\n                            text: \"Basic Management\"\n                        },\n                        {\n                            title: \"Online Selling\",\n                            text: \"Online Selling\"\n                        },\n                        {\n                            title: \"Marketing\",\n                            text: \"Marketing\"\n                        },\n                        {\n                            title: \"None of these\",\n                            text: \"None of these\"\n                        }\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "showVideoMABot",
+			"type": "prompt",
+			"stepId": "5f1d90142246d915380ef725",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nconst sendVideoToWhatsapp = async (url, mime, caption) => {\n    await app.sendVideo(url,\n        {mime, caption}\n    );\n};\n\nconst sendVideoToBrowser = async (url) => {\n    await app.sendVideo({\n        url,\n        autoplay: true,\n        controls: true,\n        muted: true,\n        loop: false\n    });\n};\n\nreturn new Promise( async (resolve, reject) => {\n    // Your logic goes here\n    let liveClassesRegex = /1|live|live classess/ig;\n    let basicManagementRegex = /2|tests|assignments|assignments and tests|test|assignment/ig;\n    let onlineSellingRegex = /3|online|selling|online selling/ig;\n    let markettingRegex = /4|marketting/ig;\n    let noneRegex = /5|none|none of these/ig;\n    let message = app.data.message.toLowerCase();\n\n    await app.sendTextMessage(`Please wait for the video...`);\n\n    if (liveClassesRegex.test(message)) {\n        if(app.source === 'whatsapp') {\n            await sendVideoToWhatsapp('https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/live.mp4', 'video/mp4', '*Go Live* in seconds');     \n        }\n        else {\n            app.log('regex tested successfully');\n            await sendVideoToBrowser('https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4');\n        }\n    }\n    else if (basicManagementRegex.test(message)) {\n        if (app.source === 'whatsapp') {\n            await sendVideoToWhatsapp('https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/online-tests.mp4', 'video/mp4', '*Online Tests*');\n        }\n        else {\n            await sendVideoToBrowser('https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4');\n        }\n    }\n    else if (onlineSellingRegex.test(message)) {\n        if (app.source === 'whatsapp') {\n            await sendVideoToWhatsapp('https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/store.mp4', 'video/mp4', '*Sell Online*');\n        }\n        else {\n            await sendVideoToBrowser('https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4');\n        }\n    }\n    else if (markettingRegex.test(message)) {\n        if (app.source === 'whatsapp') {\n            await sendVideoToWhatsapp('https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/marketing-dashboard.mp4', 'video/mp4', '*Promote your Course*');\n        }\n        else {\n            await sendVideoToBrowser('https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4');\n        }\n    }\n    else {\n        if (app.source === 'whatsapp') {\n            await sendVideoToWhatsapp('https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/brand1.mp4', 'video/mp4', '*#ClassplusForCoachings*');\n        }\n        else {\n            await sendVideoToBrowser('https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4');\n        }\n    }\n    await customSleep(5000);\n\n    await app.sendTextMessage(`Type 'Ok' to continue.`);\n    resolve();\n});\n\n\n\n\n\n\n\n\n"
+		},
+		{
+			"name": "basicInfoValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d9a1d70ef726",
+			"code": "return new Promise(resolve => {\n    let consumerchoice = app.data.message;\n\n    if (consumerchoice) {\n        consumerchoice = consumerchoice.toLowerCase().trim();\n    }\n\n    let scheduledemoregex = /Classplus Brand|1|one|brand/ig;\n    let classplusinforegex = /Classplus Media Articles|2|two|media articles/ig;\n    let schedulederegex = /Product|3|three/ig;\n\n    if (scheduledemoregex.test(consumerchoice)) {\n        app.setStep('basicinfo', 'Classplus Brand');\n\n        resolve();\n    }\n    else if (classplusinforegex.test(consumerchoice)) {\n        app.setStep('basicinfo', 'Classplus Media Articles');\n\n        resolve();\n    } else if (schedulederegex.test(consumerchoice)) {\n        app.setStep('basicinfo', 'Product');\n\n        resolve();\n    }\n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Classplus Brand\",\n                            text: \"Classplus Brand\"\n                        },\n                        {\n                            title: \"Classplus Media Articles\",\n                            text: \"Classplus Media Articles\"\n                        },\n                        {\n                            title: \"Product\",\n                            text: \"Product\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "mediaArticlesPrompt",
+			"type": "prompt",
+			"stepId": "5f1d90142246d9fbd70ef727",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n\n    //await app.sendTextMessage(`But before you go, just have a look at this.`);\n\n    if (app.source == \"whatsapp\") {\n        await app.sendTextMessage(`We have been loved by the Tutors and the Media too.\n        Check it out:\n        https://bit.ly/31oZdhV\n        https://bit.ly/2DpID9F`);\n        await customSleep(5000);\n        await app.sendTextMessage(`Would you like to go back?\n*1.* Yes\n*2.* No`);\n    } else {\n        await app.sendVideo({\n            url: 'https://cp-assets-public.s3.ap-south-1.amazonaws.com/cams/market/what3.mp4',\n            autoplay: true,\n            controls: true,\n            muted: true,\n            loop: false\n        });\n        await customSleep(3000);\n        await app.sendQuickReplies({\n            title: \"Would you like to go back?\",\n            options: [\n                {\n                    title: \"Yes\",\n                    text: \"yes\"\n                },\n                {\n                    title: \"No\",\n                    text: \"no\"\n                }\n            ]\n        })\n    }\n\n    resolve();\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d9fbd70ef727",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "brandVideoPrompt",
+			"type": "prompt",
+			"stepId": "5f1d90142246d924a30ef728",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\nreturn new Promise(async resolve => {\n    // Your logic goes here\n\n    //await app.sendTextMessage(`But before you go, just have a look at this.`);\n    await app.sendTextMessage(`Please wait for the video...`);\n    if (app.source == \"whatsapp\") {\n        await app.sendVideo(\n            \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/brand1.mp4\",\n            {\n                mime: \"video/mp4\",\n                caption: \"*#ClassplusForCoachings\",\n            }\n        );\n        await customSleep(10000);\n        await app.sendTextMessage(`Would you like to go back?\n*1.* Yes\n*2.* No`);\n    } else {\n        await app.sendVideo({\n            url: 'https://cp-assets-public.s3.ap-south-1.amazonaws.com/cams/market/what3.mp4',\n            autoplay: true,\n            controls: true,\n            muted: true,\n            loop: false\n        });\n        await customSleep(3000);\n        await app.sendQuickReplies({\n            title: \"Would you like to go back?\",\n            options: [\n                {\n                    title: \"Yes\",\n                    text: \"yes\"\n                },\n                {\n                    title: \"No\",\n                    text: \"no\"\n                }\n            ]\n        })\n    }\n\n    resolve();\n});"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d924a30ef728",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		},
+		{
+			"name": "moreClassplusValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d968ff0ef729",
+			"code": "return new Promise(resolve => {\n    let menuchoice = app.data.message;\n\n    if (menuchoice) {\n        menuchoice = menuchoice.toLowerCase().trim();\n    }\n\n    let sales = /Assignments and Tests|1|one|Assignements|Tests/ig;\n    let classplusinforegex = /Go Live|2|two/ig;\n    let brochure = /Fees Management|3|three|fees/ig;\n    let exitregex = /Create & Sell courses|4|four|Sell Courses|Sell/ig;\n    let fi = /Do Free Marketing|5|five|Marketing|Free/ig;\n    if (sales.test(menuchoice)) {\n        app.setStep('moreclassplus', 'Assignments and Tests');\n\n        resolve();\n    }\n    else if (classplusinforegex.test(menuchoice)) {\n        app.setStep('moreclassplus', 'Go Live');\n\n        resolve();\n    } else if (brochure.test(menuchoice)) {\n        app.setStep('moreclassplus', 'Fees Management');\n\n        resolve();\n    }\n    else if (exitregex.test(menuchoice)) {\n        app.setStep('moreclassplus', 'Create & Sell courses');\n\n        resolve();\n    } else if (fi.test(menuchoice)) {\n        app.setStep('moreclassplus', 'Do Free Marketing');\n\n        resolve();\n    }\n    else {\n        resolve({\n            success: false,\n            customHandler: () => {\n                app.sendQuickReplies({\n                    title: \"Sorry! I coudn't understand that. Please choose from the following options.\",\n                    options: [\n                        {\n                            title: \"Stay Connected with Students\",\n                            text: \"Stay Connected with Students\"\n                        },\n                        {\n                            title: \"Go Live\",\n                            text: \"Go Live\"\n                        },\n                        {\n                            title: \"Fees Management\",\n                            text: \"Fees Management\"\n                        },\n                        {\n                            title: \"Create course & Do Marketing\",\n                            text: \"Create course & Do Marketing\"\n                        },\n                        {\n                            title: \"Recommend Course from Store\",\n                            text: \"Recommend Course from Store\"\n                        }\n\n                    ]\n                })\n            }\n        })\n    }\n\n});"
+		},
+		{
+			"name": "productChoicePrompt",
+			"type": "prompt",
+			"stepId": "5f1d90142246d90e940ef72a",
+			"code": "const customSleep = (sleep => {\n    return new Promise(resolve => {\n        setTimeout(resolve, sleep);\n    });\n});\n\n\nreturn new Promise(async resolve => {\n    let getreasonstep = app.context.steps[\"moreclassplus\"];\n\n\n    if (getreasonstep == \"Assignments and Tests\") {\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video...`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/online-tests.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"Best way to make your students *practice*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        //resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`I'm sure it would have been helpful. \nDo you want to know about more Product?\n*1.* Yes\n*2.* No`);\n\n    } else if (getreasonstep == \"Go Live\") {\n\n\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video...`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/live.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"*Go Live*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        //resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`I'm sure it would have been helpful. \nDo you want to know about more Product?\n*1.* Yes\n*2.* No`);\n\n    } else if (getreasonstep == \"Fees Management\") {\n\n\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video...`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/payments.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"*Payments at fingertips*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n       // resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`I'm sure it would have been helpful. \nDo you want to know about more Product?\n*1.* Yes\n*2.* No`);\n\n    } else if (getreasonstep == \"Create & Sell courses\") {\n\n\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video...`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/Store+01.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"*Create and Sell your own courses*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        //resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`I'm sure it would have been helpful. \nDo you want to know about more Product?\n*1.* Yes\n*2.* No`);\n    } else if (getreasonstep == \"Do Free Marketing\") {\n\n\n        if (app.source == \"whatsapp\") {\n            await app.sendTextMessage(`Please wait for the video...`);\n            await app.sendVideo(\n                \"https://clevertapimages.s3.ap-south-1.amazonaws.com/Sales/marketing-dashboard.mp4\",\n                {\n                    mime: \"video/mp4\",\n                    caption: \"*Custom Notifications*\",\n                }\n            );\n        } else {\n            await app.sendVideo({\n                url: 'https://cdn.yellowmessenger.com/1LNCO7m4vVAi1594635666327.mp4',\n                autoplay: true,\n                controls: true,\n                muted: true,\n                loop: false\n            });\n        }\n        //resolve();\n        await customSleep(10000);\n        await app.sendTextMessage(`I'm sure it would have been helpful. \nDo you want to know about more Product?\n*1.* Yes\n*2.* No`);\n    }\n         resolve();\n\n    \n\n});\n"
+		},
+		{
+			"name": "genericYesNoValidator",
+			"type": "validators",
+			"stepId": "5f1d90142246d90e940ef72a",
+			"code": "\n\nreturn new Promise(resolve => {\n    let message = app.data.message;\n    let stepName = app.context[\"paramExpected\"];\n    if (app.source == \"whatsapp\") {\n        if (app.prediction && app.prediction.numbers) {\n            let value = app.prediction.numbers[0].value;\n            if (value == 1) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (value == 2) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        } else {\n            if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n                app.setStep(stepName, 'yes');\n                resolve();\n            } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n                app.setStep(stepName, 'no');\n                resolve();\n            } else {\n                resolve({\n                    success: false,\n                    customHandler: () => {\n                        app.sendQuickReplies({\n                            title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                            options: [\n                                {\n                                    title: \"Yes\",\n                                    text: \"Yes\"\n                                },\n                                {\n                                    title: \"No\",\n                                    text: \"No\"\n                                }\n                            ]\n                        })\n                    }\n                })\n            }\n        }\n    } else {\n        if (/yes|1/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"yes\")) {\n            app.setStep(stepName, 'yes');\n            resolve();\n        } else if (/no|2/ig.test(message) || (app.prediction && app.prediction.global_model && app.prediction.global_model.confidence > 0.8 && app.prediction.global_model.intent == \"no\")) {\n            app.setStep(stepName, 'no');\n            resolve();\n        } else {\n            resolve({\n                success: false,\n                customHandler: () => {\n                    app.sendQuickReplies({\n                        title: \"Sorry I coudn't understand. Please choose Yes or No\",\n                        options: [\n                            {\n                                title: \"Yes\",\n                                text: \"Yes\"\n                            },\n                            {\n                                title: \"No\",\n                                text: \"No\"\n                            }\n                        ]\n                    })\n                }\n            })\n        }\n    }\n\n\n\n});"
+		}
+	]
+}
